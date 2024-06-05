@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import "./funciones";
+
+
+/** Variables */
+$color-White: #ffffff;
+$color-Bright-Pink: #F75A6F;
+$color-Cimson: #DA1832;
+$color-Gray-Clear: #999999;
+$color-Gray: #808080;
+$color-English-Violet: #4C446B;
+$color-Space-Cadet: #322E41;
+$color-Raisin-Black: #1A1726;
+$color-Night: #121214;
+
+$color-Best-LapTime-Combination : #ffbf00;
+$color-Second-Best-LapTime-Combination : #C0C0C0;
+$color-Third-Best-LapTime-Combination : #CD7F32;
+
+$font-sizes: (
+    "cuerpo": 18px,
+    "h6": 100%,
+    "h5": 125%,
+    "h4": 150%,
+    "h3": 200%,
+    "h2": 250%,
+    "h1": 300%
+);
+
+$font-family:"Titillium Web", sans-serif;
+
+$font-weights: (
+    "light": 300,
+    "medium": 500,
+    "bold": 700,
+    "black": 900,
+);
+
+$cuerpo: map-get($font-weights, "light") map-get($font-sizes, "cuerpo") $font-family;
+
+$default-margin: 0px;
+
+$border-radius-elements: 5px;
+
+$margenes-lados: 12px;

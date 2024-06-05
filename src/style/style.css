@@ -1,0 +1,681 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+/** Variables */
+html {
+  margin: 0 auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1A1726;
+  color: #ffffff;
+  font: 300 18px "Titillium Web", sans-serif;
+}
+
+.margenes-landing {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.padding-landing, .navbar {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+@media screen and (min-width: 576px) {
+  .margenes-landing {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  .padding-landing, .navbar {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .badge {
+    margin-top: 10% !important;
+  }
+  .margenesTopContact {
+    margin-top: 27% !important;
+  }
+  .nav-item {
+    margin-left: 25px !important;
+  }
+  .tituloHome {
+    margin-top: 8% !important;
+  }
+  .buttonAccederLogin {
+    width: auto !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .margenes-landing {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  .padding-landing, .navbar {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .margenesLogin {
+    margin-top: 11% !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .offcanvas-md {
+    width: auto !important;
+  }
+}
+@media screen and (min-width: 992px) {
+  .margenes-landing {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  .padding-landing, .navbar {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .sidebar.close {
+    width: 210px !important;
+  }
+}
+@media screen and (min-width: 1070px) {
+  .margenes-landing {
+    margin-left: 200px !important;
+    margin-right: 200px !important;
+  }
+  .padding-landing, .navbar {
+    padding-left: 200px !important;
+    padding-right: 200px !important;
+  }
+  .margenes-top-analyze {
+    margin-top: 200px !important;
+  }
+}
+h1 {
+  font: 900 300% "Titillium Web", sans-serif !important;
+  font-weight: bold !important;
+}
+h2 {
+  font: 700 250% "Titillium Web", sans-serif !important;
+  font-weight: bold !important;
+}
+h3 {
+  font: 500 200% "Titillium Web", sans-serif !important;
+  font-weight: bold !important;
+}
+h4 {
+  font: 150% "Titillium Web", sans-serif !important;
+  font-weight: bold !important;
+}
+h5 {
+  font: 125% "Titillium Web", sans-serif !important;
+  font-weight: bold !important;
+}
+h6 {
+  font: 100% "Titillium Web", sans-serif !important;
+  font-weight: bold !important;
+}
+
+.card-model, .cartaMarca, .cardMarquee {
+  border: 2px solid #322E41;
+  border-radius: 5px;
+}
+
+.button, .buttonGetStarted {
+  border-radius: 5px;
+  background-color: #DA1832;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.breadcrumb-item {
+  --bs-breadcrumb-divider-color: $color-White !important;
+}
+
+.container {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.navbar {
+  background-color: #1A1726 !important;
+  justify-content: inherit !important;
+}
+.navbar .navbar-toggler {
+  margin-right: 12px !important;
+}
+.navbar .navbar-toggler .navbar-toggler-icon {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.navbar .navbar-collapse {
+  padding-left: none;
+}
+.navbar .navbar-collapse .navbar-nav {
+  padding-left: 12px !important;
+}
+.navbar .navbar-collapse .navbar-nav .nav-link {
+  font-size: medium;
+  color: #ffffff !important;
+}
+.navbar .navbar-collapse .navbar-nav .nav-link:hover {
+  color: #DA1832 !important;
+}
+.navbar .navbar-collapse .navbar-nav .nav-item {
+  margin-left: 0px;
+}
+.navbar .navbar-collapse .navbar-nav .buttonLogin {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: 12px !important;
+  background-color: #DA1832;
+}
+.navbar .navbar-collapse .navbar-nav .buttonLogin:hover {
+  cursor: pointer;
+  background: #ffffff;
+}
+.navbar .navbar-collapse .navbar-nav .buttonLogin:hover a {
+  color: #DA1832 !important;
+}
+
+footer {
+  background-color: #121214;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-right: 0px !important;
+}
+footer .col-md-4 .email {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+footer .col-md-4 .email:hover {
+  color: #808080;
+}
+footer .col-md-8 {
+  margin-top: 0.6%;
+}
+footer .col-md-8 ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+footer .col-md-8 .col-md-3 {
+  float: right;
+}
+footer .col-md-8 .col-md-3 a {
+  text-decoration: none;
+  color: #ffffff;
+}
+footer .col-md-8 .col-md-3 a:hover {
+  color: #DA1832;
+}
+
+.navbar-brand {
+  padding: 0% !important;
+  height: 70%;
+}
+.navbar-brand img {
+  width: 70px;
+}
+
+.tituloHome {
+  margin-top: 0%;
+}
+
+.textoSecundarioCabecera, .textoSecundarioSeccion, .seccionApps .textoSecundarioApp, .textoSecundarioAnalyze {
+  font-size: 23px;
+}
+
+.logoAssettoCorsa {
+  width: 100px;
+  margin-bottom: 4%;
+}
+
+.buttonGetStarted {
+  height: 74px;
+  width: 225px;
+  font-size: 150%;
+  display: grid;
+  place-items: center;
+}
+.buttonGetStarted p {
+  margin-bottom: 0px;
+}
+
+.buttonGetStarted:hover {
+  color: #DA1832;
+  background-color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cardMarquee {
+  width: 190px;
+  height: 95px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: grid;
+  place-items: center;
+  background-color: transparent;
+}
+.cardMarquee .logoMarcaMarquee {
+  width: 40% !important;
+}
+
+.rotadorMarcasCoches {
+  margin-top: 8%;
+  margin-bottom: 8%;
+}
+.rotadorMarcasCoches h3 {
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+#carouselCircuitos .carousel-indicators {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+#carouselCircuitos .carousel-item img, #carouselCircuitos .carousel-inner {
+  border-radius: 5px;
+}
+
+.seccionMasQueUnaPaginaRanking {
+  margin-bottom: 8%;
+}
+
+.seccionStast {
+  background-color: #DA1832;
+  margin-bottom: 8%;
+  margin-right: 0;
+}
+
+.seccionApps {
+  margin-bottom: 8%;
+}
+.seccionApps .card {
+  width: 100%;
+  border-color: inherit;
+  --bs-card-border-color: none;
+}
+.seccionApps .card div .textoCartaApp {
+  background-color: #4C446B;
+}
+.seccionApps .card div .textoCartaApp h4 {
+  color: #ffffff;
+}
+.seccionApps .card div .textoCartaApp p {
+  font-size: 18px;
+  color: #ffffff;
+}
+.seccionApps .card:hover {
+  cursor: pointer;
+}
+.seccionApps .card:hover .textoCartaApp:hover {
+  background-color: #DA1832;
+}
+.seccionApps .card:hover .textoCartaApp:hover h4 {
+  color: #ffffff;
+}
+.seccionApps .card:hover .textoCartaApp:hover p {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.seccionTestimonios {
+  margin-bottom: 8%;
+}
+.seccionTestimonios .card {
+  --bs-card-bg: none;
+  background-color: #4C446B;
+}
+.seccionTestimonios .card .card-body .card-text, .seccionTestimonios .card .card-body .card-title {
+  color: #ffffff;
+}
+.seccionTestimonios img {
+  width: 60px;
+  border-radius: 30px;
+}
+
+.form-control {
+  border: 2px solid #999999;
+  border-radius: 5px;
+  color: #ffffff !important;
+}
+
+.form-control::-moz-placeholder {
+  color: #999999;
+}
+
+.form-control::placeholder {
+  color: #999999;
+}
+
+.form-control:focus {
+  background-color: transparent;
+}
+
+.inputBuscarMarcas {
+  max-width: 800px;
+}
+
+.btn-outline-secondary {
+  background-color: #DA1832;
+  color: #ffffff;
+  font-weight: bold;
+  --bs-btn-border-width: none;
+}
+
+.btn-outline-secondary:hover {
+  color: #DA1832;
+  background-color: #ffffff;
+}
+
+.cartaMarca {
+  display: grid;
+  place-items: center;
+  background-color: transparent !important;
+  height: 180px !important;
+}
+
+.cartaMarca:hover {
+  background-color: #4C446B !important;
+}
+
+.imagenLogoMarcaCartaCoche {
+  width: 11%;
+  top: 5px;
+  right: 5px;
+}
+
+.form-select {
+  border: none;
+  background-color: #DA1832 !important;
+  color: #ffffff !important;
+  font-weight: bold;
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") ;
+}
+
+select > option {
+  background-color: #1A1726;
+  color: #4C446B;
+}
+
+.badge {
+  height: 25px;
+  margin-top: 5%;
+}
+
+.cartaCoche:hover {
+  background-color: #4C446B !important;
+}
+
+iframe {
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.margenesTopContact {
+  margin-top: 0%;
+}
+
+.margenesSeccionesTrack {
+  margin-top: 6% !important;
+}
+
+.input-group-text {
+  color: #ffffff;
+  background-color: #DA1832;
+  border: 1px solid #DA1832;
+}
+
+.logoOnpoleSignUp {
+  width: 85px;
+}
+
+.margenesToSignUp {
+  margin-top: 13%;
+}
+
+.margenesAbout {
+  margin-top: 10%;
+  margin-bottom: 20%;
+}
+
+.margenesSeccionesTrack {
+  margin-bottom: 6%;
+}
+
+.buttonIniciarDeSignUpPage {
+  color: #DA1832;
+}
+
+.buttonIniciarDeSignUpPage:hover {
+  color: #F75A6F;
+}
+
+.margenesLogin {
+  margin-top: 35%;
+}
+
+.logoOnpoleLogin {
+  width: 200px;
+}
+
+.buttonAccederLogin {
+  width: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+
+.bg-success {
+  background-color: #322E41 !important;
+}
+
+.mynav {
+  color: #fff;
+}
+
+.mynav li a {
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  padding: 8px 5px;
+}
+
+.mynav li a.active {
+  background: #DA1832;
+}
+
+.mynav li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mynav li a i {
+  width: 25px;
+  text-align: center;
+}
+
+.notification-badge {
+  background-color: #1A1726;
+  float: right;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 0px 8px;
+  border-radius: 2px;
+}
+
+.sidebar {
+  width: 280px;
+}
+.sidebar .navbar-brand {
+  height: 5% !important;
+}
+.sidebar .nav-item {
+  margin-left: 0px !important;
+}
+
+.sidebarUserImg {
+  width: 50px;
+}
+
+.bi-list {
+  font-size: 30px;
+}
+
+.sidebarUserImg {
+  width: 50px;
+}
+
+.sidebarUser {
+  --bs-breadcrumb-divider:"";
+  font-size: 14px;
+}
+
+.marginBottonListaSeccionesUser {
+  margin-bottom: 150%;
+}
+
+.table {
+  --bs-table-bg: none;
+  --bs-table-color: none;
+}
+.table thead {
+  background-color: #322E41;
+}
+
+.table-hover {
+  --bs-table-hover-bg: none;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #DA1832 !important;
+}
+
+.margenes-top-analyze {
+  margin-top: 110px;
+}
+
+.fondoTarjetaInicioSesion {
+  background-color: #DA1832;
+}
+
+.border {
+  border: 2px solid #322E41 !important;
+}
+
+.paginaAnalyzeSesion h3, .paginaAnalyzeSesion h5, .paginaAnalyzeSesionLap h3, .paginaAnalyzeSesionLap h5, .paginaDashBoard h3, .paginaDashBoard h5 {
+  margin-bottom: auto !important;
+}
+.paginaAnalyzeSesion hr, .paginaAnalyzeSesionLap hr, .paginaDashBoard hr {
+  border: 1px solid #DA1832;
+  opacity: 100%;
+  margin: auto;
+}
+
+.bestLapTimeCombination {
+  background-color: #ffbf00;
+}
+
+.secondBestLapTimeCombination {
+  background-color: #C0C0C0;
+}
+
+.thirdBestLapTimeCombination {
+  background-color: #CD7F32;
+}
+
+.userWelcomeDashboard {
+  background-color: #DA1832;
+}
+
+.mejorPosicionClasificada {
+  font-size: 80px;
+}
+
+.yourProfile {
+  background-color: #DA1832;
+}
+
+.layoutCircuitoDashboardCombinations {
+  position: absolute;
+  width: 55px;
+  right: 30px;
+}
+
+.fuenteCitaEscritorio {
+  font-size: 22px;
+}
+
+.combinacionesDashBoard {
+  background-image: url("../../public/images/circuitos/nordschleife/endurance/bgr00.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.combinacionesDashBoard .marginTopCombinaciones {
+  margin-top: 26%;
+}
+
+.estadisticasUsuarioDashboard {
+  background-color: #4C446B;
+}
+
+.marginTopLeaderboard {
+  margin-top: 32%;
+}
+
+.fondoHoverDefaultPrimary:hover {
+  background-color: #4C446B;
+}
+
+.padding_bottom_Leaderboard {
+  padding-bottom: 70px;
+}
+
+.offcanvas {
+  background-color: #322E41;
+}
+.offcanvas .offcanvas-title {
+  color: #ffffff;
+}
+.offcanvas .btn-close {
+  --bs-btn-close-white-filter: invert(1) grayscale(100%) brightness(200%) !important;
+  filter: var(--bs-btn-close-white-filter);
+  --bs-btn-close-opacity: 1 !important;
+}
+
+.fuenteOffCanvas {
+  font-size: 55px;
+}
+
+.page-link {
+  background-color: #4C446B !important;
+  border-color: #1A1726 !important;
+}
+
+.fondoCabeceraPerfil {
+  background-color: #4C446B;
+}
+
+.fotoBanderaPerfil {
+  width: 50px;
+}
+
+.bi-gear {
+  font-size: 25px;
+}
+
+.fotorPerfil {
+  width: 150px;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,781 @@
+@import "./variables";
+@import "./mixins";
+
+html{
+    margin: 0 auto;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: $color-Raisin-Black;
+    color: $color-White;
+    font: $cuerpo;
+}
+
+.margenes-landing{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.padding-landing{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+//  PHONE
+
+@media screen and (min-width: 576px) {
+    .margenes-landing{
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    .padding-landing{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .badge{
+        margin-top: 10% !important;
+    }
+
+    .margenesTopContact{
+        margin-top: 27% !important;
+    }
+
+    .nav-item{
+        margin-left: 25px !important;
+    }
+
+    .tituloHome{
+        margin-top: 8% !important;
+    }
+
+    .buttonAccederLogin{
+        width: auto !important;
+    }
+}
+
+//  TABLET
+
+@media screen and (min-width: 768px) {
+    .margenes-landing{
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    .padding-landing{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .margenesLogin{
+        margin-top: 11% !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .offcanvas-md{
+        width: auto !important;
+    }
+}
+
+//  LAPTOPS
+
+@media screen and (min-width: 992px) {
+    .margenes-landing{
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    .padding-landing{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .sidebar.close {
+        width: 210px !important;
+    }
+}
+
+//  LAPTOPS AND DESKTOPS
+
+@media screen and (min-width: 1070px) {
+    .margenes-landing{
+        margin-left: 200px !important;
+        margin-right: 200px !important;
+    }
+
+    .padding-landing{
+        padding-left: 200px !important;
+        padding-right: 200px !important;
+    }
+
+    .margenes-top-analyze{
+        margin-top: 200px !important;
+    }
+}
+
+
+h{
+    &1{
+        @include encabezado("h1");
+
+        font-weight: bold !important;
+    }
+    &2{
+        @include encabezado("h2");
+
+        font-weight: bold !important;
+    }
+    &3{
+        @include encabezado("h3");
+
+        font-weight: bold !important;
+    }
+    &4{
+        @include encabezado("h4");
+
+        font-weight: bold !important;
+    }
+    &5{
+        @include encabezado("h5");
+
+        font-weight: bold !important;
+    }
+    &6{
+        @include encabezado("h6");
+
+        font-weight: bold !important;
+    }
+}
+
+//  GENERAL
+
+.card-model{
+    border: 2px solid $color-Space-Cadet;
+    border-radius: $border-radius-elements;
+}
+
+.button{
+    border-radius: $border-radius-elements;
+    background-color: $color-Cimson;
+    color: $color-White;
+    font-weight: bold;
+}
+
+.breadcrumb-item{
+    --bs-breadcrumb-divider-color: $color-White !important;
+}
+
+.container{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+//  NAVBAR
+
+.navbar {
+    @extend .padding-landing;
+
+    background-color: $color-Raisin-Black !important;
+    justify-content: inherit !important;
+
+    .navbar-toggler{
+        margin-right: $margenes-lados !important;
+        .navbar-toggler-icon {
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+    }
+
+    .navbar-collapse{
+        padding-left: none;
+
+        .navbar-nav{
+            padding-left: $margenes-lados !important;
+
+            .nav-link {
+                font-size: medium;
+                color: $color-White !important;
+            }
+
+            .nav-link:hover{
+                color: $color-Cimson !important;
+            }
+
+            .nav-item{
+                margin-left: 0px;
+            }
+
+            .buttonLogin{
+                padding-left: 15px;
+                padding-right: 15px;
+                margin-right: $margenes-lados !important;
+                background-color: $color-Cimson;
+            }
+
+            .buttonLogin:hover{
+                cursor: pointer;
+                background: $color-White;
+
+                a{
+                    color: $color-Cimson !important;
+                }
+            }
+        }
+
+    }
+}
+
+//  FOOTER
+
+footer{
+    background-color: $color-Night;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-right: 0px !important;
+
+    .col-md-4{
+
+        .email{
+            font-size: 20px;
+            font-weight: bold;
+            color: $color-White;
+            text-decoration: none;
+        }
+        .email:hover{
+            color: $color-Gray;
+        }
+    }
+
+    .col-md-8{
+        margin-top: 0.6%;
+        ul{
+            padding-left: 0;
+            list-style-type: none;
+        }
+        .col-md-3{
+            float: right;
+            a{
+                text-decoration: none;
+                color: $color-White;
+            }
+            a:hover{
+                color: $color-Cimson;
+            }
+        }
+    }
+
+}
+
+//  HOME PAGE
+
+.navbar-brand {
+    padding: 0% !important;
+    height: 70%;
+    img{
+        width: 70px;
+    }
+}
+
+
+//  CABECERA
+
+.tituloHome{
+    margin-top: 0%;
+}
+
+.textoSecundarioCabecera, .textoSecundarioSeccion, .seccionApps .textoSecundarioApp, .textoSecundarioAnalyze {
+    font-size: 23px;
+}
+
+.logoAssettoCorsa{
+    width: 100px;
+    margin-bottom: 4%;
+}
+
+.buttonGetStarted{
+    @extend .button;
+
+    height: 74px;
+    width: 225px;
+    font-size: 150%;
+    display: grid;
+    place-items: center;
+
+    p{
+        margin-bottom: 0px;
+    }
+}
+
+.buttonGetStarted:hover{
+    color: $color-Cimson;
+    background-color: $color-White;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cardMarquee{
+    @extend .card-model;
+
+    width: 190px;
+    height: 95px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    place-items: center;
+    background-color: transparent;
+
+    .logoMarcaMarquee{
+        width: 40% !important;
+    }
+}
+
+.rotadorMarcasCoches{
+    margin-top: 8%;
+    margin-bottom: 8%;
+    h3{
+        text-align: center;
+        margin-bottom: 2%;
+    }
+}
+
+//  SECIONES
+
+#carouselCircuitos{
+    .carousel-indicators {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    .carousel-item img, .carousel-inner{
+        border-radius: $border-radius-elements;
+    }
+}
+
+.seccionMasQueUnaPaginaRanking{
+    margin-bottom: 8%;
+}
+
+.seccionStast {
+    background-color: $color-Cimson;
+    margin-bottom: 8%;
+    margin-right: 0;
+}
+
+.seccionApps{
+    margin-bottom: 8%;
+    .card{
+        width: 100%;
+        border-color: inherit;
+        --bs-card-border-color: none;
+
+        div{
+            .textoCartaApp{
+                background-color: $color-English-Violet;
+                h4{
+                    color: $color-White;
+                }
+                p{
+                    font-size: 18px;
+                    color: $color-White;
+                }
+            }
+        }
+    }
+    .card:hover{
+        cursor: pointer;
+
+        .textoCartaApp:hover{
+            background-color: $color-Cimson;
+            h4{
+                color: $color-White;
+            }
+            p{
+                font-size: 18px;
+                color: $color-White;
+            }
+        }
+    }
+}
+
+.seccionTestimonios{
+    margin-bottom: 8%;
+    .card{
+        --bs-card-bg: none;
+        background-color: $color-English-Violet;
+        .card-body{
+            .card-text, .card-title{
+                color: $color-White;
+            }
+        }
+    }
+
+    img{
+        width: 60px;
+        border-radius: 30px;
+    }
+}
+
+//  CARS PAGE
+
+.form-control{
+    border: 2px solid $color-Gray-Clear;
+    border-radius: $border-radius-elements;
+    color: $color-White !important;
+}
+
+.form-control::placeholder{
+    color: $color-Gray-Clear;
+}
+
+.form-control:focus{
+    background-color: transparent;
+}
+
+.inputBuscarMarcas{
+    max-width: 800px;
+}
+
+.btn-outline-secondary{
+    background-color: $color-Cimson;
+    color: $color-White;
+    font-weight: bold;
+    --bs-btn-border-width: none;
+}
+
+.btn-outline-secondary:hover{
+    color: $color-Cimson;
+    background-color: $color-White;
+}
+
+.cartaMarca{
+    @extend .card-model;
+
+    display: grid;
+    place-items: center;
+    background-color: transparent !important;
+    height: 180px !important;
+}
+
+.cartaMarca:hover{
+    background-color: $color-English-Violet !important;
+}
+
+.imagenLogoMarcaCartaCoche{
+    width: 11%;
+    top: 5px;
+    right: 5px;
+}
+
+.form-select{
+    border: none;
+    background-color: $color-Cimson !important;
+    color: $color-White !important;
+    font-weight: bold;
+    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e")
+
+}
+
+select>option{
+    background-color: $color-Raisin-Black;
+    color: $color-English-Violet;
+}
+
+.badge{
+    height: 25px;
+    margin-top: 5%;
+}
+
+.cartaCoche:hover{
+    background-color: $color-English-Violet !important;
+}
+
+
+//  CONTACT PAGE
+
+iframe{
+    border-radius: $border-radius-elements;
+}
+
+textarea{
+    resize: vertical;
+}
+
+.margenesTopContact {
+    margin-top: 0%;
+}
+
+//  LOGIN
+
+.margenesSeccionesTrack{
+    margin-top: 6% !important;
+}
+
+.input-group-text{
+    color: $color-White;
+    background-color: $color-Cimson;
+    border: 1px solid $color-Cimson;
+}
+
+//  SIGN UP
+
+.logoOnpoleSignUp{
+    width: 85px;
+}
+
+.margenesToSignUp{
+    margin-top: 13%;
+}
+
+//  ABOUT
+
+.margenesAbout{
+    margin-top: 10%;
+    margin-bottom: 20%;
+}
+
+.margenesSeccionesTrack{
+    margin-bottom: 6%;
+}
+
+.buttonIniciarDeSignUpPage{
+    color: $color-Cimson;
+}
+
+.buttonIniciarDeSignUpPage:hover{
+    color: $color-Bright-Pink;
+}
+
+.margenesLogin{
+    margin-top: 35%;
+}
+
+.logoOnpoleLogin{
+    width: 200px;
+}
+
+.buttonAccederLogin{
+    width: 100%;
+}
+
+
+html,body{
+    height: 100%;
+}
+
+.bg-success{
+    background-color: $color-Space-Cadet !important;
+}
+
+.mynav{
+    color: #fff;
+}
+
+.mynav li a {
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    padding: 8px 5px;
+}
+
+.mynav li a.active{
+    background: $color-Cimson;
+}
+
+.mynav li a:hover{
+    background: rgba(255,255,255,0.2);
+}
+
+.mynav li a i{
+    width: 25px;
+    text-align: center;
+}
+
+.notification-badge{
+    background-color: $color-Raisin-Black;
+    float: right;
+    color: $color-White;
+    font-size: 14px;
+    padding: 0px 8px;
+    border-radius: 2px;
+}
+
+.sidebar{
+    width: 280px;
+    .navbar-brand{
+        height: 5% !important;
+    }
+
+    .nav-item{
+        margin-left: 0px !important;
+    }
+}
+
+.sidebarUserImg{
+    width: 50px;
+}
+
+.bi-list{
+    font-size: 30px;
+}
+
+.sidebarUserImg{
+    width:50px;
+}
+
+.sidebarUser{
+    --bs-breadcrumb-divider:'';
+    font-size:14px;
+}
+
+.marginBottonListaSeccionesUser{
+    margin-bottom: 150%;
+}
+
+//  SESSIONS
+.table{
+    --bs-table-bg: none;
+    --bs-table-color: none;
+    thead{
+        background-color: $color-Space-Cadet;
+    }
+}
+
+.table-hover{
+    --bs-table-hover-bg: none;
+}
+
+.table-hover tbody tr:hover{
+    background-color: $color-Cimson !important;
+}
+
+//  ANALYZE
+
+.margenes-top-analyze{
+    margin-top: 110px;
+}
+
+
+//  ANALYZE SESION
+.fondoTarjetaInicioSesion{
+    background-color: $color-Cimson;
+}
+
+.border{
+    border: 2px solid $color-Space-Cadet !important;
+}
+
+.paginaAnalyzeSesion, .paginaAnalyzeSesionLap, .paginaDashBoard{
+    h3, h5{
+        margin-bottom: auto !important;
+    }
+    hr{
+        border: 1px solid $color-Cimson;
+        opacity: 100%;
+        margin: auto;
+    }
+}
+
+.bestLapTimeCombination{
+    background-color: $color-Best-LapTime-Combination;
+}
+
+.secondBestLapTimeCombination{
+    background-color: $color-Second-Best-LapTime-Combination;
+}
+
+.thirdBestLapTimeCombination{
+    background-color: $color-Third-Best-LapTime-Combination;
+}
+
+.userWelcomeDashboard{
+    background-color: $color-Cimson;
+}
+
+.mejorPosicionClasificada{
+    font-size: 80px;
+}
+
+.yourProfile{
+    background-color: $color-Cimson;
+}
+
+.layoutCircuitoDashboardCombinations{
+    position: absolute;
+    width: 55px;
+    right: 30px;
+}
+
+.fuenteCitaEscritorio{
+    font-size: 22px;
+}
+
+.combinacionesDashBoard{
+    background-image: url("../../public/images/circuitos/nordschleife/endurance/bgr00.jpg");
+    background-size: cover;
+    background-position: center;
+    .marginTopCombinaciones{
+        margin-top: 26%;
+    }
+}
+
+.estadisticasUsuarioDashboard{
+    background-color: $color-English-Violet;
+}
+
+.marginTopLeaderboard{
+    margin-top: 32%;
+}
+
+.fondoHoverDefaultPrimary:hover{
+    background-color: $color-English-Violet;
+}
+
+.padding_bottom_Leaderboard{
+    padding-bottom: 70px;
+}
+
+.offcanvas{
+    background-color: $color-Space-Cadet;
+
+    .offcanvas-title{
+        color: $color-White;
+    }
+    .btn-close{
+        --bs-btn-close-white-filter: invert(1) grayscale(100%) brightness(200%) !important;
+        filter: var(--bs-btn-close-white-filter);
+        --bs-btn-close-opacity: 1 !important;
+    }
+}
+
+.fuenteOffCanvas{
+    font-size: 55px;
+}
+
+.page-link{
+    background-color: $color-English-Violet !important;
+    border-color: $color-Raisin-Black !important;
+}
+
+.fondoCabeceraPerfil{
+    background-color: $color-English-Violet;
+}
+
+.fotoBanderaPerfil{
+    width: 50px;
+}
+
+.bi-gear{
+    font-size: 25px;
+}
+
+.fotorPerfil{
+    width: 150px;
+}

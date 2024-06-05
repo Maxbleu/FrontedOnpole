@@ -1,0 +1,16 @@
+//  DATA PROVIDER
+import axiosClient from "../axios-client";
+
+/**
+ * Este método se encarga de pedir a
+ * la api las estadísticas de un usuario
+ * en la web
+ * @param {Number} user_id
+ * @returns {Object}
+ */
+export default function getUserEstadisticas(user_id){
+    return axiosClient.get(`/users/estadistica/${user_id}`)
+        .then(({data})=>{
+            return data.data;
+        });
+}
