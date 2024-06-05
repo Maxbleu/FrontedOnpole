@@ -38,7 +38,7 @@ const Pie = () => {
                         <h4>Racing Cars</h4>
                         <ul>
                             <li>
-                                <Link to="/brandscars/Mercedes Benz/">
+                                <Link to="/brandscars/Mercedes/">
                                     Mercedes Benz
                                 </Link>
                             </li>
