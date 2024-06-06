@@ -91,9 +91,6 @@ body {
     padding-left: 200px !important;
     padding-right: 200px !important;
   }
-  .margenes-top-analyze {
-    margin-top: 200px !important;
-  }
 }
 h1 {
   font: 900 300% "Titillium Web", sans-serif !important;
@@ -561,10 +558,6 @@ html, body {
 
 .table-hover tbody tr:hover {
   background-color: #DA1832 !important;
-}
-
-.margenes-top-analyze {
-  margin-top: 110px;
 }
 
 .fondoTarjetaInicioSesion {

@@ -66,57 +66,57 @@ const LoginPage = () => {
     },[])
 
     return (
-        <>
-
-            <div className='row margenes-landing margenesLogin'>
-                <div className='col-sm-12 text-center'>
-                    <img className="logoOnpoleLogin" src={LogoOnpole} alt="logo Onpole" />
+        <div className='row mt-auto mb-auto me-0' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '90vh' }}>
+            <div className='col-12'>
+                <div className='row margenes-landing'>
+                    <div className='col-sm-12 text-center'>
+                        <img className="logoOnpoleLogin" src={LogoOnpole} alt="logo Onpole" />
+                    </div>
                 </div>
+
+                <form onSubmit={handleLogin} className='mt-5'>
+
+                    <input type="hidden" name="_token" value={csrfToken} />
+
+                    <div className='row margenes-landing'>
+                        <div className='col-md-2 col-lg-4'></div>
+                        <div className='col-md-8 col-lg-4'>
+                            <div className="input-group mb-3">
+                                <span className="input-group-text" id="basic-addon1">
+                                    <i className="bi bi-person-circle"></i>
+                                </span>
+                                <input type="text" ref={emailRef} className="form-control bg-transparent" placeholder="Email" aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                        <div className='col-md-2 col-lg-4'></div>
+                    </div>
+
+                    <div className='row margenes-landing'>
+                        <div className='col-md-2 col-lg-4'></div>
+                        <div className='col-md-8 col-lg-4'>
+                            <div className="input-group mb-3">
+                                <span className="input-group-text" id="basic-addon1">
+                                    <i className="bi bi-key-fill"></i>
+                                </span>
+                                <input type="password" ref={passwordRef} className="form-control bg-transparent" placeholder="Password" aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                        <div className='col-md-2 col-lg-4'></div>
+                    </div>
+
+                    <div className='row margenes-landing'>
+                        <div className='col-0 col-md-2 col-lg-4'></div>
+                        <div className='col-12 col-md-8 col-lg-4'>
+                            <div className="input-group d-flex justify-content-start justify-content-sm-end">
+                                <button className="btn btn-outline-secondary buttonAccederLogin" type="submit" id="button-addon1">Acceder</button>
+                            </div>
+                        </div>
+                        <div className='col-0 col-md-2 col-lg-4'></div>
+                    </div>
+
+                </form>
             </div>
-
-            <form onSubmit={handleLogin} className='mt-5'>
-
-                <input type="hidden" name="_token" value={csrfToken} />
-
-                <div className='row margenes-landing'>
-                    <div className='col-md-2 col-lg-4'></div>
-                    <div className='col-md-8 col-lg-4'>
-                        <div className="input-group mb-3">
-                            <span className="input-group-text" id="basic-addon1">
-                                <i className="bi bi-person-circle"></i>
-                            </span>
-                            <input type="text" ref={emailRef} className="form-control bg-transparent" placeholder="Email" aria-describedby="basic-addon1" />
-                        </div>
-                    </div>
-                    <div className='col-md-2 col-lg-4'></div>
-                </div>
-
-                <div className='row margenes-landing'>
-                    <div className='col-md-2 col-lg-4'></div>
-                    <div className='col-md-8 col-lg-4'>
-                        <div className="input-group mb-3">
-                            <span className="input-group-text" id="basic-addon1">
-                                <i className="bi bi-key-fill"></i>
-                            </span>
-                            <input type="password" ref={passwordRef} className="form-control bg-transparent" placeholder="Password" aria-describedby="basic-addon1" />
-                        </div>
-                    </div>
-                    <div className='col-md-2 col-lg-4'></div>
-                </div>
-
-                <div className='row margenes-landing'>
-                    <div className='col-0 col-md-2 col-lg-4'></div>
-                    <div className='col-12 col-md-8 col-lg-4'>
-                        <div className="input-group d-flex justify-content-start justify-content-sm-end">
-                            <button className="btn btn-outline-secondary buttonAccederLogin" type="submit" id="button-addon1">Acceder</button>
-                        </div>
-                    </div>
-                    <div className='col-0 col-md-2 col-lg-4'></div>
-                </div>
-
-            </form>
-
-        </>
+        </div>
     );
 
 }
