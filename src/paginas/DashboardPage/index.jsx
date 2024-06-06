@@ -118,281 +118,283 @@ const DashboardPage = () => {
                 !haRecibidoUser && !haRebicibidoUserEstadisticas && user !== null ? (
                     <AjaxLoader></AjaxLoader>
                 ) : (
-                    <>
-                        <div className='row d-none d-md-flex paginaDashBoard p-5'>
-                            <div className='col-12'>
-                                <div className='row row-cols-3 gx-5'>
-                                    <div className='col-3'>
-                                        <div className='row userWelcomeDashboard border rounded'>
-                                            <div className='col-12'>
-                                                <h1>Welcome</h1>
-                                                <h1>{user.name}</h1>
-                                            </div>
-                                        </div>
-                                        <div className='row mt-4'>
-                                            <div className='col-12'>
-                                                <span className='fuenteCitaEscritorio'>{elegirCita()}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='col-6'>
-                                        <Link to="/combinations" className='row border rounded text-decoration-none text-white'>
-                                            <div className='col-12'>
-                                                <div className='row combinacionesDashBoard'>
-                                                    <div className='col-12 marginTopCombinaciones'>
-                                                        <h3 className='p-5'>Combinaciones para disfrutar</h3>
-                                                    </div>
+                    <div className='row'>
+                        <div className='col-12'>
+                            <div className='row d-none d-md-flex paginaDashBoard p-4'>
+                                <div className='col-12'>
+                                    <div className='row row-cols-3 gx-5'>
+                                        <div className='col-3'>
+                                            <div className='row userWelcomeDashboard border rounded'>
+                                                <div className='col-12'>
+                                                    <h1>Welcome</h1>
+                                                    <h1>{user.name}</h1>
                                                 </div>
                                             </div>
-                                        </Link>
-                                    </div>
-                                    <div className='col-3'>
-                                        <div className='row'>
-                                            <div className='col-12 border rounded'>
-                                                <div className='row p-2'>
-                                                    <div className='col-12'>
-                                                        <div className='row'>
-                                                            <div className='col-12'>
-                                                                <span className='fs-4'>Lap records:</span>
-                                                            </div>
-                                                        </div>
-                                                        <div className='row'>
-                                                            <div className='col-12 text-end'>
-                                                                <span className='mejorPosicionClasificada'>{estadisticas.number_lap_record}</span>
-                                                            </div>
+                                            <div className='row mt-4'>
+                                                <div className='col-12'>
+                                                    <span className='fs-5'>{elegirCita()}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-6'>
+                                            <Link to="/combinations" className='row border rounded text-decoration-none text-white'>
+                                                <div className='col-12'>
+                                                    <div className='row combinacionesDashBoard' style={{height: '40vh'}}>
+                                                        <div className='col-12' style={{marginTop: '25vh'}}>
+                                                            <h3 className='p-5'>Combinaciones para disfrutar</h3>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </Link>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className='row row-cols-3 gx-5'>
-                                    <div className='col-3'>
-                                        <Link to="/bestplayers" className={'row fondoHoverDefaultPrimary border rounded marginTopLeaderboard text-decoration-none text-white padding_bottom_Leaderboard'}>
-                                            <div className='col-12'>
-                                                <div className='row text-center text-md-start p-3'>
-                                                    <div className='col-12'>
-                                                        <h5>Glogal Rank</h5>
+                                        <div className='col-3'>
+                                            <div className='row'>
+                                                <div className='col-12 border rounded'>
+                                                    <div className='row p-2'>
+                                                        <div className='col-12'>
+                                                            <div className='row'>
+                                                                <div className='col-12'>
+                                                                    <span className='fs-4'>Lap records:</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className='row'>
+                                                                <div className='col-12 text-end'>
+                                                                    <span className='mejorPosicionClasificada'>{estadisticas.number_lap_record}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <>
-                                                    {
-                                                        !haRecibidoGlobalRank ? (
-                                                            <AjaxLoader></AjaxLoader>
-                                                        ) :
-                                                        (
-                                                            listRank.map(mostrarRanks)
-                                                        )
-                                                    }
-                                                </>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                    <div className='col-6'>
-                                        <div className='row mt-4 border rounded text-center estadisticasUsuarioDashboard'>
-                                            <div className='col-4'>
-                                                <h3>LH: {estadisticas.number_hot_laps}</h3>
-                                            </div>
-                                            <div className='col-4'>
-                                                <h3>TS: {estadisticas.number_total_sesions}</h3>
-                                            </div>
-                                            <div className='col-4'>
-                                                <h3>TL: {estadisticas.number_total_laps}</h3>
                                             </div>
                                         </div>
-                                        <div className='row mt-4 border rounded'>
+                                    </div>
+                                    <div className='row row-cols-3 gx-5'>
+                                        <div className='col-3'>
+                                            <Link to="/bestplayers" className={'row fondoHoverDefaultPrimary border rounded marginTopLeaderboard text-decoration-none text-white padding_bottom_Leaderboard'}>
+                                                <div className='col-12'>
+                                                    <div className='row text-center text-md-start p-3'>
+                                                        <div className='col-12'>
+                                                            <h5>Glogal Rank</h5>
+                                                        </div>
+                                                    </div>
+                                                    <>
+                                                        {
+                                                            !haRecibidoGlobalRank ? (
+                                                                <AjaxLoader></AjaxLoader>
+                                                            ) :
+                                                            (
+                                                                listRank.map(mostrarRanks)
+                                                            )
+                                                        }
+                                                    </>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                        <div className='col-6'>
+                                            <div className='row mt-4 border rounded text-center estadisticasUsuarioDashboard'>
+                                                <div className='col-4'>
+                                                    <h3>LH: {estadisticas.number_hot_laps}</h3>
+                                                </div>
+                                                <div className='col-4'>
+                                                    <h3>TS: {estadisticas.number_total_sesions}</h3>
+                                                </div>
+                                                <div className='col-4'>
+                                                    <h3>TL: {estadisticas.number_total_laps}</h3>
+                                                </div>
+                                            </div>
+                                            <div className='row mt-4 border rounded'>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className='col-3'>
-                                        {
-                                            JSON.stringify(latestSesion) === "{}" ? (
-                                                <div className='row marginTopLeaderboard border rounded p-4 text-center'>
-                                                    <div className='col-12'>
-                                                        <div className='row'>
-                                                            <h4>No hay sesiones analizadas por el usuario</h4>
+                                        <div className='col-3'>
+                                            {
+                                                JSON.stringify(latestSesion) === "{}" ? (
+                                                    <div className='row marginTopLeaderboard border rounded p-4 text-center'>
+                                                        <div className='col-12'>
+                                                            <div className='row'>
+                                                                <h4>No hay sesiones analizadas por el usuario</h4>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            ) : (
-                                                <div className='row marginTopLeaderboard border rounded fondoHoverDefaultPrimary'>
-                                                    <div className='col-12'>
-                                                        <div className='row'>
-                                                            <div className='col-12 p-2 ps-md-3'>
-                                                                <h5>Latest session</h5>
+                                                ) : (
+                                                    <div className='row marginTopLeaderboard border rounded fondoHoverDefaultPrimary'>
+                                                        <div className='col-12'>
+                                                            <div className='row'>
+                                                                <div className='col-12 p-2 ps-md-3'>
+                                                                    <h5>Latest session</h5>
+                                                                </div>
+                                                                <hr />
                                                             </div>
-                                                            <hr />
+                                                            <Link to={`/sessions/${latestSesion.id}`} className='row mb-4 mt-3 text-decoration-none text-white'>
+                                                                <div className='col-6'>
+                                                                    <div className='row'>
+                                                                        <div className='col-12'>
+                                                                            <img className='w-100' src={imagenCocheUltimaSesion} alt="Imagen coche ultima sesion" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className='row'>
+                                                                        <div className='col-12 text-center'>
+                                                                            <span>{latestSesion.coche.nombre}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className='col-6'>
+                                                                    <div className='row mt-3'>
+                                                                        <div className='col-12'>
+                                                                            <span className='fs-5'>{latestSesion.fecha}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className='row'>
+                                                                        <div className='col-12'>
+                                                                            <span className='fs-5'>{latestSesion.circuito.nombre}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className='row'>
+                                                                        <div className='col-12'>
+                                                                            <span className='fs-5'>{convertidorTiempoVuelta(latestSesion.vueltas[latestSesion.numero_mejor_vuelta-1].tiempo_vuelta)}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </Link>
                                                         </div>
-                                                        <Link to={`/sessions/${latestSesion.id}`} className='row mb-4 mt-3 text-decoration-none text-white'>
-                                                            <div className='col-6'>
-                                                                <div className='row'>
-                                                                    <div className='col-12'>
-                                                                        <img className='w-100' src={imagenCocheUltimaSesion} alt="Imagen coche ultima sesion" />
-                                                                    </div>
-                                                                </div>
-                                                                <div className='row'>
-                                                                    <div className='col-12 text-center'>
-                                                                        <span>{latestSesion.coche.nombre}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className='col-6'>
-                                                                <div className='row mt-3'>
-                                                                    <div className='col-12'>
-                                                                        <span className='fs-5'>{latestSesion.fecha}</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div className='row'>
-                                                                    <div className='col-12'>
-                                                                        <span className='fs-5'>{latestSesion.circuito.nombre}</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div className='row'>
-                                                                    <div className='col-12'>
-                                                                        <span className='fs-5'>{convertidorTiempoVuelta(latestSesion.vueltas[latestSesion.numero_mejor_vuelta-1].tiempo_vuelta)}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </Link>
                                                     </div>
-                                                </div>
-                                            )
-                                        }
+                                                )
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className='row d-block d-md-none paginaDashBoard'>
-                            <div className='col-12'>
-                                <div className='row'>
-                                    <div className='col-12'>
-                                        <div className='row text-center border rounded userEstadisticasDashboard'>
-                                            <div className='col'>
-                                                <h4>HL : {estadisticas.number_hot_laps}</h4>
-                                            </div>
-                                            <div className='col'>
-                                                <h4>TS : {estadisticas.number_total_sesions}</h4>
-                                            </div>
-                                            <div className='col'>
-                                                <h4>TL : {estadisticas.number_total_laps}</h4>
-                                            </div>
-                                        </div>
-                                        <div className='row mt-3 row-cols-2 gx-5'>
-                                            <div className='col'>
-                                                <div className='row border rounded userWelcomeDashboard'>
-                                                    <div className='col-12'>
-                                                        <h3>Welcome {user.name}</h3>
-                                                    </div>
+                            <div className='row d-block d-md-none paginaDashBoard'>
+                                <div className='col-12'>
+                                    <div className='row'>
+                                        <div className='col-12'>
+                                            <div className='row text-center border rounded userEstadisticasDashboard'>
+                                                <div className='col'>
+                                                    <h4>HL : {estadisticas.number_hot_laps}</h4>
                                                 </div>
-                                                <div className='row border rounded mt-3'>
-                                                    <div className='col-12'>
-                                                        <div className='row'>
-                                                            <div className='col-12'>
-                                                                <span className='fs-3'>Lap records:</span>
-                                                            </div>
-                                                        </div>
-                                                        <div className='row'>
-                                                            <div className='col-12 text-end'>
-                                                                <span className='mejorPosicionClasificada'>{estadisticas.number_lap_record}</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <div className='col'>
+                                                    <h4>TS : {estadisticas.number_total_sesions}</h4>
+                                                </div>
+                                                <div className='col'>
+                                                    <h4>TL : {estadisticas.number_total_laps}</h4>
                                                 </div>
                                             </div>
-                                            <div className='col'>
-                                                <Link to="/bestplayers" className='row border rounded text-decoration-none text-white'>
-                                                    <div className='col-12'>
-                                                        <div className='row text-center'>
-                                                            <div className='col-12'>
-                                                                <h5>Glogal Rank</h5>
-                                                            </div>
+                                            <div className='row mt-3 row-cols-2 gx-5'>
+                                                <div className='col'>
+                                                    <div className='row border rounded userWelcomeDashboard'>
+                                                        <div className='col-12'>
+                                                            <h3>Welcome {user.name}</h3>
                                                         </div>
-                                                        <>
-                                                            {
-                                                                !haRecibidoGlobalRank ? (
-                                                                    <AjaxLoader></AjaxLoader>
-                                                                ) :
-                                                                (
-                                                                    listRank.map(mostrarRanks)
-                                                                )
-                                                            }
-                                                        </>
                                                     </div>
-                                                </Link>
-                                                <div className='row mt-3'>
-                                                    <div className='col-12'>
-                                                        <span>{elegirCita()}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <Link className='row mt-3 border rounded bg-transparent text-decoration-none' to="/combinations">
-                                            <div className='col-6'>
-                                                <h4 className='text-white'>Combinations to enjoy</h4>
-                                            </div>
-                                            <div className='col-6 d-flex align-items-center '>
-                                                <img className='w-75' src={imagenes_coches["Ferrari"]["458 ITALIA"]} alt="Imagen coche" />
-                                                <img className='layoutCircuitoDashboardCombinations' src={imagenes_circuitos["Nurburgring Nordscheleife"].map} alt="Imagen nordschleife" />
-                                            </div>
-                                        </Link>
-                                        {
-                                            JSON.stringify(latestSesion) === "{}" ? (
-                                                <div className='row mt-4 border rounded p-4 text-center'>
-                                                    <div className='col-12'>
-                                                        <div className='row'>
-                                                            <h4>No hay sesiones analizadas por el usuario</h4>
+                                                    <div className='row border rounded mt-3'>
+                                                        <div className='col-12'>
+                                                            <div className='row'>
+                                                                <div className='col-12'>
+                                                                    <span className='fs-3'>Lap records:</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className='row'>
+                                                                <div className='col-12 text-end'>
+                                                                    <span className='mejorPosicionClasificada'>{estadisticas.number_lap_record}</span>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            ) : (
-                                                <Link className='row mt-3 border rounded text-decoration-none text-white' to={"/sessions/"+latestSesion.id}>
-                                                    <div className='col-12'>
-                                                        <div className='row'>
-                                                            <div className='col-12'>
-                                                                <span className='fs-1'>Latest session</span>
-                                                                <hr />
-                                                            </div>
-                                                        </div>
-                                                        <div className='row'>
-                                                            <div className='col-6'>
-                                                                <img className='w-100' src={imagenCocheUltimaSesion} alt="Imagen coche de la última sesion" />
+                                                <div className='col'>
+                                                    <Link to="/bestplayers" className='row border rounded text-decoration-none text-white'>
+                                                        <div className='col-12'>
+                                                            <div className='row text-center'>
+                                                                <div className='col-12'>
+                                                                    <h5>Glogal Rank</h5>
+                                                                </div>
                                                             </div>
                                                             <>
                                                                 {
-                                                                    !haRecibidoLaUltimaSesionUsuario ? (
+                                                                    !haRecibidoGlobalRank ? (
                                                                         <AjaxLoader></AjaxLoader>
-                                                                    ) : (
-                                                                        <div className='col-6'>
-                                                                            <div className='row mt-2'>
-                                                                                <div className='col-12'>
-                                                                                    <span>{latestSesion.fecha}</span>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className='row'>
-                                                                                <div className='col-12'>
-                                                                                    <span>{latestSesion.circuito.nombre}</span>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className='row'>
-                                                                                <div className='col-12'>
-                                                                                    <span>{latestSesion.coche.nombre}</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                                                                    ) :
+                                                                    (
+                                                                        listRank.map(mostrarRanks)
                                                                     )
                                                                 }
                                                             </>
                                                         </div>
+                                                    </Link>
+                                                    <div className='row mt-3'>
+                                                        <div className='col-12'>
+                                                            <span>{elegirCita()}</span>
+                                                        </div>
                                                     </div>
-                                                </Link>
-                                            )
-                                        }
+                                                </div>
+                                            </div>
+                                            <Link className='row mt-3 border rounded bg-transparent text-decoration-none' to="/combinations">
+                                                <div className='col-6'>
+                                                    <h4 className='text-white'>Combinations to enjoy</h4>
+                                                </div>
+                                                <div className='col-6 d-flex align-items-center '>
+                                                    <img className='w-75' src={imagenes_coches["Ferrari"]["458 ITALIA"]} alt="Imagen coche" />
+                                                    <img className='layoutCircuitoDashboardCombinations' src={imagenes_circuitos["Nurburgring Nordscheleife"].map} alt="Imagen nordschleife" />
+                                                </div>
+                                            </Link>
+                                            {
+                                                JSON.stringify(latestSesion) === "{}" ? (
+                                                    <div className='row mt-4 border rounded p-4 text-center'>
+                                                        <div className='col-12'>
+                                                            <div className='row'>
+                                                                <h4>No hay sesiones analizadas por el usuario</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <Link className='row mt-3 border rounded text-decoration-none text-white' to={"/sessions/"+latestSesion.id}>
+                                                        <div className='col-12'>
+                                                            <div className='row'>
+                                                                <div className='col-12'>
+                                                                    <span className='fs-1'>Latest session</span>
+                                                                    <hr />
+                                                                </div>
+                                                            </div>
+                                                            <div className='row'>
+                                                                <div className='col-6'>
+                                                                    <img className='w-100' src={imagenCocheUltimaSesion} alt="Imagen coche de la última sesion" />
+                                                                </div>
+                                                                <>
+                                                                    {
+                                                                        !haRecibidoLaUltimaSesionUsuario ? (
+                                                                            <AjaxLoader></AjaxLoader>
+                                                                        ) : (
+                                                                            <div className='col-6'>
+                                                                                <div className='row mt-2'>
+                                                                                    <div className='col-12'>
+                                                                                        <span>{latestSesion.fecha}</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className='row'>
+                                                                                    <div className='col-12'>
+                                                                                        <span>{latestSesion.circuito.nombre}</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className='row'>
+                                                                                    <div className='col-12'>
+                                                                                        <span>{latestSesion.coche.nombre}</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        )
+                                                                    }
+                                                                </>
+                                                            </div>
+                                                        </div>
+                                                    </Link>
+                                                )
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </>
+                    </div>
                 )
             }
         </Sidebar>
