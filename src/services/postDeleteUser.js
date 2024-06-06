@@ -8,7 +8,7 @@ import axiosClient from "../axios-client";
  * de la pagina web
  */
 export default function postDeleteUser(){
-    return axiosClient.post("delete")
+    return axiosClient.post("/user/delete")
         .then((response)=>{
             return response;
         });

@@ -8,7 +8,7 @@ import axiosClient from '../axios-client';
  * @returns {response}
  */
 export default function putUser(payloadUser){
-    return axiosClient.put("/update",payloadUser)
+    return axiosClient.put("/user/update",payloadUser)
         .then((response)=>{
             return response;
         });

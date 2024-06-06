@@ -7,7 +7,7 @@ import axiosClient from "../axios-client";
  * @returns {response}
  */
 export default function postLogout(){
-    return axiosClient.post("/logout")
+    return axiosClient.post("/user/logout")
         .then((response)=>{
             return response;
         });
