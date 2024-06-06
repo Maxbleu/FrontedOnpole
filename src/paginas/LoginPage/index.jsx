@@ -1,5 +1,5 @@
 //  DEPENDENCIAS
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //  IMAGEN
@@ -7,9 +7,13 @@ import LogoOnpole from '../../../public/images/logoOnpole.png';
 
 //  SERVICES
 import postLogin from '../../services/postLogin';
+import getCsrfToken from '../../services/getCsrfgToken';
 
 //  CONTEXT
 import { useStateContext } from '../../contexts/ContextProvider';
+
+//  COMPONENTES
+import AjaxLoader from '../../componentes/AjaxLoader';
 
 const LoginPage = () => {
 
@@ -23,9 +27,9 @@ const LoginPage = () => {
     const passwordRef = useRef();
 
     //  SETS
-    const {setToken, setUser} = useStateContext();
+    const {setToken, setUser, csrfToken, setCsrfToken} = useStateContext();
 
-    //  ERROS
+    //  USE STATES
     const [errors, setErrors] = useState([]);
 
     /**
@@ -55,8 +59,15 @@ const LoginPage = () => {
         });
     };
 
+    useEffect(()=>{
+        getCsrfToken().then((csrfToken)=>{
+            setCsrfToken(csrfToken);
+        })
+    },[])
+
     return (
         <>
+
             <div className='row margenes-landing margenesLogin'>
                 <div className='col-sm-12 text-center'>
                     <img className="logoOnpoleLogin" src={LogoOnpole} alt="logo Onpole" />
@@ -64,6 +75,8 @@ const LoginPage = () => {
             </div>
 
             <form onSubmit={handleLogin} className='mt-5'>
+
+                <input type="hidden" name="_token" value={csrfToken} />
 
                 <div className='row margenes-landing'>
                     <div className='col-md-2 col-lg-4'></div>

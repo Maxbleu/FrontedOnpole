@@ -12,6 +12,18 @@ axiosClient.interceptors.request.use((config) => {
     return config;
 });
 
+axiosClient.interceptors.request.use(request => {
+    if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(request.method.toUpperCase())) {
+        const csrfToken = localStorage.getItem('CSRF_TOKEN');
+        if (csrfToken) {
+            request.headers['X-CSRF-TOKEN'] = csrfToken;
+        }
+    }
+        return request;
+    }, error => {
+        return Promise.reject(error);
+});
+
 axiosClient.interceptors.response.use((response) => {
     return response;
 }, (error) => {

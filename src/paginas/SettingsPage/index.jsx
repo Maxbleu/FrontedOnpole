@@ -15,7 +15,7 @@ import putUser from '../../services/putUser';
 
 const SettingsPage = () => {
 
-    const {user, setToken, setUser, setUserHaSidoModificado} = useStateContext();
+    const {user, setToken, setUser, setUserHaSidoModificado, setCsrfToken} = useStateContext();
 
     const navigate = useNavigate();
 
@@ -94,6 +94,7 @@ const SettingsPage = () => {
         postDeleteUser().then((response)=>{
             if(response.status){
                 setToken(null);
+                setCsrfToken("");
                 setUser({});
             }
         });
@@ -112,6 +113,7 @@ const SettingsPage = () => {
         postLogout().then((response)=>{
             if(response.status === 200){
                 setToken(null);
+                setCsrfToken("");
             }
         });
         navigate("/");

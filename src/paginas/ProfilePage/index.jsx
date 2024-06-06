@@ -39,7 +39,7 @@ const ProfilePage = () => {
     }
 
     useEffect(()=>{
-        if(haRecibidoLaUltimaSesionUsuario){
+        if(JSON.stringify(latestSesion) !== "{}"){
             setImagenCocheUltimaSesion(obtenerImagenCoche(latestSesion));
         }
     },[haRecibidoLaUltimaSesionUsuario])

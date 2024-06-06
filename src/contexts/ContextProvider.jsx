@@ -1,9 +1,6 @@
 //  DEPENDENCIAS
 import { createContext, useContext, useState } from "react";
 
-//  DATA PROVIDER
-import axiosClient from './../axios-client';
-
 //  HOOCKS
 import UseMarcas from "./../hooks/useMarcas";
 import UseCircuitos from './../hooks/useCircutos';
@@ -20,20 +17,30 @@ const StateContext = createContext({
 
 export const ContextProvider = ({children}) => {
 
-    const [token, _setToken] = useState(localStorage.getItem("ACCESS_TOKEN"));
-    const {user, haRecibidoUser, setUser, setUserHaSidoModificado} = UseUser(token);
-
     //  Almaceno estos datos en el cliente cuando son pedidos ya que, son datos que son
     //  requeridos en cada pantalla de la web por lo que haciendo esto reduzco la carga del servidor
-    //  aumento la eficiencia de la web.
+    //  aumento la eficiencia de la web
     const {marcas, haRecibidoMarcas} = UseMarcas();
     const {coches, haRecibidoCoches} = UseCoches();
     const {circuitos, haRecibidoCircuitos} = UseCircuitos();
+
+    const [csrfToken, _setCsrfToken] = useState(localStorage.getItem("CSRF_TOKEN"));
+    const [token, _setToken] = useState(localStorage.getItem("ACCESS_TOKEN"));
+    const {user, haRecibidoUser, setUser, setUserHaSidoModificado} = UseUser(token);
 
     const [sesionSeleccionada, setSesionSeleccionada] = useState({});
     const [vueltaSeleccionada, setVueltaSeleccionada] = useState({});
     const [imagenCircuitoSesion, setImagenCircuitoSesion] = useState("");
     const [imagenCocheSesion, setImagenCocheSesion] = useState("");
+
+    const setCsrfToken = (csrfToken) =>{
+        _setCsrfToken(csrfToken);
+        if(csrfToken){
+            localStorage.setItem("CSRF_TOKEN", csrfToken);
+        }else{
+            localStorage.removeItem("CSRF_TOKEN");
+        }
+    }
 
     const setToken = (token) => {
         _setToken(token)
@@ -73,7 +80,10 @@ export const ContextProvider = ({children}) => {
             setImagenCircuitoSesion,
 
             imagenCocheSesion,
-            setImagenCocheSesion
+            setImagenCocheSesion,
+
+            csrfToken,
+            setCsrfToken
         }}>
             {children}
         </StateContext.Provider>
