@@ -1,5 +1,5 @@
 //  DEPENDECIAS
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { resolvePath, useNavigate } from 'react-router-dom';
 
 //  COMPONENTES
@@ -15,14 +15,14 @@ import putUser from '../../services/putUser';
 
 const SettingsPage = () => {
 
-    const {user, setToken, setUser, setUserHaSidoModificado, setCsrfToken} = useStateContext();
+    const {user, setToken, setUser, setUserHaSidoModificado, userHaSidoModificado, setCsrfToken} = useStateContext();
 
     const navigate = useNavigate();
 
-    const [isDisabledInputsAccount, setIsDisabledInputsAccount] = useState(true);
-    const [mensageAccount, setMessageAccount] = useState("");
-
     const [isDisabledInputsSecurity, setIsDisabledInputsSecurity] = useState(true);
+    const [isDisabledInputsAccount, setIsDisabledInputsAccount] = useState(true);
+
+    const [mensageAccount, setMessageAccount] = useState("");
     const [mensageSecurityContraseñasNoCoinciden, setMensageSecurityContraseñasNoCoinciden] = useState("");
     const [mensageSecurityContraseñasActualizadas, setMensageSecurityContraseñasActualizadas] = useState("");
 
@@ -118,6 +118,10 @@ const SettingsPage = () => {
         });
         navigate("/");
     }
+
+    useEffect(()=>{
+        setUserHaSidoModificado(false);
+    },[userHaSidoModificado])
 
     return (
 

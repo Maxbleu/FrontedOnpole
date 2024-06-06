@@ -11,10 +11,10 @@ const UseUser = (token) => {
     const [user, setUser] = useState({});
 
     useEffect(()=>{
-        if(token !== null){
+        if(token !== null || userHaSidoModificado){
             obtenerUser();
         }
-    },[token])
+    },[token,userHaSidoModificado])
 
     /**
      * Este método se encarga de comprobar
@@ -31,7 +31,7 @@ const UseUser = (token) => {
         }
     }
 
-    return { haRecibidoUser, user, setUser ,setUserHaSidoModificado}
+    return { haRecibidoUser, user, setUser ,setUserHaSidoModificado, userHaSidoModificado}
 
 }
 

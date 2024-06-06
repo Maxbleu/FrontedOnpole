@@ -26,7 +26,7 @@ export const ContextProvider = ({children}) => {
 
     const [csrfToken, _setCsrfToken] = useState(localStorage.getItem("CSRF_TOKEN"));
     const [token, _setToken] = useState(localStorage.getItem("ACCESS_TOKEN"));
-    const {user, haRecibidoUser, setUser, setUserHaSidoModificado} = UseUser(token);
+    const {user, haRecibidoUser, setUser, setUserHaSidoModificado, userHaSidoModificado} = UseUser(token);
 
     const [sesionSeleccionada, setSesionSeleccionada] = useState({});
     const [vueltaSeleccionada, setVueltaSeleccionada] = useState({});
@@ -56,6 +56,7 @@ export const ContextProvider = ({children}) => {
             user,
             setUser,
             haRecibidoUser,
+            userHaSidoModificado,
             setUserHaSidoModificado,
 
             token,
