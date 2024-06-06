@@ -178,11 +178,11 @@ const AnalyzePage = () => {
                     <AjaxLoader></AjaxLoader>
 
                 ) : (
-                    <div className='row margenes-top-analyze'>
+                    <div className='row  mx-auto me-0' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '90vh', }}>
 
                         <div className='col-sm-2'></div>
 
-                        <div className='col-sm-8 border border-white pt-5 pb-5 rounded'>
+                        <div className='col-sm-8 border border-white pt-5 pb-5 rounded mx-auto'>
 
                             <div className='row'>
 
@@ -257,7 +257,6 @@ const AnalyzePage = () => {
                             </div>
 
                         </div>
-
                         <div className='col-sm-2'></div>
 
                     </div>

@@ -11,9 +11,6 @@ import { useStateContext } from './../../contexts/ContextProvider';
 //  SERVICES
 import postSignUp from '../../services/postSignUp';
 
-//  IMAGENES
-import LogoOnpole from './../../../public/images/logoOnpole.png';
-
 //  HOOCKS
 import usePaises from './../../hooks/usePaises';
 
@@ -88,6 +85,11 @@ const SignUpPage = () => {
         return <option value={pais.valor} key={pais.valor+index+pais.nombre}>{pais.nombre}</option>
     }
 
+    /**
+     * Este método se encarga de guardar el
+     * país seleccionado por el usuario
+     * @param {event} event 
+     */
     function insertarPaisSeleccionado(event){
         let pais = paises.filter((pais)=>{
             return pais.valor === event.target.value;
@@ -96,112 +98,108 @@ const SignUpPage = () => {
     }
 
     return (
-        <>
-            <div className='row margenes-landing margenesToSignUp'>
-                <div className='col-sm-1 col-md-1 col-lg-2'></div>
-                <div className='col-3 col-sm-2 col-md-1 col-lg-1'>
-                    <img className='logoOnpoleSignUp' src={LogoOnpole} alt="Logo de onpole" />
+        <div className='row mt-auto mb-auto me-0' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '90vh' }}>
+            <div className='col-12'>
+                <div className='row margenes-landing'>
+                    <div className='col-sm-1 col-md-1 col-lg-2'></div>
+                    <div className='col-12 col-sm-8 col-md-8 mx-md-5 col-lg-9 mx-lg-0'>
+                        <h2>Log your account</h2>
+                    </div>
+                    <div className='col-sm-1 col-md-1 col-md-2'></div>
                 </div>
-                <div className='col-9 col-sm-8 col-md-8 mx-md-5 col-lg-9 mx-lg-0'>
-                    <h2>Log your account</h2>
-                </div>
-                <div className='col-sm-1 col-md-1 col-md-2'></div>
-            </div>
+                {
+                    errors.length > 0 ? (
+                        <div className="row alert margenes-landing alert alert-danger" role="alert">
+                            <div className='col-sm-1 col-md-1 col-lg-2'></div>
+                            <div className='col-sm-10 col-md-10 col-lg-8'>
+                                {
+                                    Object.keys(errors).map(key => {
+                                        return <p className='fw-bold' key={key}>{errors[key][0]}</p>
+                                    })
+                                }
+                            </div>
+                            <div className='col-sm-1 col-md-1 col-lg-2'></div>
+                        </div>
+                    ) : (
+                        <></>
+                    )
+                }
+                <form onSubmit={handleSubmit}>
 
-            {
-                errors.length > 0 ? (
-                    <div className="row alert margenes-landing alert alert-danger" role="alert">
+                    <div className='row margenes-landing mt-3'>
                         <div className='col-sm-1 col-md-1 col-lg-2'></div>
                         <div className='col-sm-10 col-md-10 col-lg-8'>
-                            {
-                                Object.keys(errors).map(key => {
-                                    return <p className='fw-bold' key={key}>{errors[key][0]}</p>
-                                })
-                            }
+                            <div className="input-group flex-nowrap ">
+                                <span className="input-group-text" id="basic-addon1">
+                                    <i className="bi bi-person-circle"></i>
+                                </span>
+                                <input type="text" ref={nameRef} className="form-control bg-transparent" placeholder="Name" />
+                            </div>
                         </div>
                         <div className='col-sm-1 col-md-1 col-lg-2'></div>
                     </div>
-                ) : (
-                    <></>
-                )
-            }
 
-            <form onSubmit={handleSubmit}>
+                    <div className='row margenes-landing mt-3'>
+                        <div className='col-sm-1 col-md-1 col-lg-2'></div>
+                        <div className='col-sm-10 col-md-10 col-lg-8'>
+                            <div className="input-group flex-nowrap ">
+                                <span className="input-group-text" id="basic-addon1">
+                                    <i className="bi bi-envelope-at-fill"></i>
+                                </span>
+                                <input type="text" ref={emailRef} className="form-control bg-transparent" placeholder="Email" />
+                            </div>
+                        </div>
+                        <div className='col-sm-1 col-md-1 col-lg-2'></div>
+                    </div>
 
-                <div className='row margenes-landing mt-3'>
-                    <div className='col-sm-1 col-md-1 col-lg-2'></div>
-                    <div className='col-sm-10 col-md-10 col-lg-8'>
-                        <div className="input-group flex-nowrap ">
-                            <span className="input-group-text" id="basic-addon1">
-                                <i className="bi bi-person-circle"></i>
-                            </span>
-                            <input type="text" ref={nameRef} className="form-control bg-transparent" placeholder="Name" />
+                    <div className='row margenes-landing mt-3'>
+                        <div className='col-sm-1 col-md-1 col-lg-2'></div>
+                        <div className='col-sm-4 col-md-4 col-lg-3'>
+                            <div className="input-group flex-nowrap ">
+                                <span className="input-group-text" id="basic-addon1">
+                                    <i className="bi bi-key-fill"></i>
+                                </span>
+                                <input type="password" ref={passwordRef}  className="form-control bg-transparent" placeholder="Password" />
+                            </div>
+                        </div>
+                        <div className='col-sm-4 col-md-4 col-lg-3'>
+                            <div className="input-group flex-nowrap mt-3 mt-sm-0">
+                                <span className="input-group-text" id="basic-addon1">
+                                    <i className="bi bi-key-fill"></i>
+                                </span>
+                                <input type="password" ref={confirmPasswordRef} className="form-control bg-transparent" placeholder="Repeat password" />
+                            </div>
+                        </div>
+                        <div className='col-sm-2 col-md-2 col-lg-2'>
+                            <select className="form-select mt-3 mt-sm-0" defaultValue="Seleccione" onChange={insertarPaisSeleccionado}>
+                                {
+                                    !haRecibidoPaises ? (
+                                        <AjaxLoader></AjaxLoader>
+                                    ) : (
+                                        paises.map(mostrarPaises)
+                                    )
+                                }
+                            </select>
+                        </div>
+                        <div className='col-sm-1 col-md-1 col-lg-2'></div>
+                    </div>
+
+                    <div className='row margenes-landing mt-3'>
+                        <div className='col-sm-1 col-md-1 col-lg-2'></div>
+                        <div className='col-sm-3 col-md-3 col-lg-2'>
+                            <div className="input-group mb-3">
+                                <button className="btn btn-outline-secondary w-100" type="submit" id="button-addon1">Sign Up</button>
+                            </div>
+                        </div>
+                        <div className='col-sm-8 col-md-8 col-lg-8 text-center text-sm-start'>
+                            <span className='me-3'>¿Ya tienes una cuenta?</span>
+                            <Link to='/login' className='text-decoration-none buttonIniciarDeSignUpPage'>Inicar Sesion</Link>
                         </div>
                     </div>
-                    <div className='col-sm-1 col-md-1 col-lg-2'></div>
-                </div>
 
-                <div className='row margenes-landing mt-3'>
-                    <div className='col-sm-1 col-md-1 col-lg-2'></div>
-                    <div className='col-sm-10 col-md-10 col-lg-8'>
-                        <div className="input-group flex-nowrap ">
-                            <span className="input-group-text" id="basic-addon1">
-                                <i className="bi bi-envelope-at-fill"></i>
-                            </span>
-                            <input type="text" ref={emailRef} className="form-control bg-transparent" placeholder="Email" />
-                        </div>
-                    </div>
-                    <div className='col-sm-1 col-md-1 col-lg-2'></div>
-                </div>
-
-                <div className='row margenes-landing mt-3'>
-                    <div className='col-sm-1 col-md-1 col-lg-2'></div>
-                    <div className='col-sm-5 col-md-5 col-lg-4'>
-                        <div className="input-group flex-nowrap ">
-                            <span className="input-group-text" id="basic-addon1">
-                                <i className="bi bi-key-fill"></i>
-                            </span>
-                            <input type="password" ref={passwordRef}  className="form-control bg-transparent" placeholder="Password" />
-                        </div>
-                    </div>
-                    <div className='col-sm-3 col-md-3 col-lg-2'>
-                        <div className="input-group flex-nowrap mt-3 mt-sm-0">
-                            <span className="input-group-text" id="basic-addon1">
-                                <i className="bi bi-key-fill"></i>
-                            </span>
-                            <input type="password" ref={confirmPasswordRef} className="form-control bg-transparent" placeholder="Repeat password" />
-                        </div>
-                    </div>
-                    <div className='col-sm-2 col-md-2 col-lg-2'>
-                        <select className="form-select mt-3 mt-sm-0" defaultValue="Seleccione" onChange={insertarPaisSeleccionado}>
-                            {
-                                !haRecibidoPaises ? (
-                                    <AjaxLoader></AjaxLoader>
-                                ) : (
-                                    paises.map(mostrarPaises)
-                                )
-                            }
-                        </select>
-                    </div>
-                    <div className='col-sm-1 col-md-1 col-lg-2'></div>
-                </div>
-
-                <div className='row margenes-landing mt-3'>
-                    <div className='col-sm-1 col-md-1 col-lg-2'></div>
-                    <div className='col-sm-3 col-md-3 col-lg-2'>
-                        <div className="input-group mb-3">
-                            <button className="btn btn-outline-secondary w-100" type="submit" id="button-addon1">Sign Up</button>
-                        </div>
-                    </div>
-                    <div className='col-sm-8 col-md-8 col-lg-8 text-center text-sm-start'>
-                        <span className='me-3'>¿Ya tienes una cuenta?</span>
-                        <Link to='/login' className='text-decoration-none buttonIniciarDeSignUpPage'>Inicar Sesion</Link>
-                    </div>
-                </div>
-
-            </form>
-
-        </>
+                </form>
+            </div>
+        </div>
     );
 
 }
