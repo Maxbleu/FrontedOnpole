@@ -148,11 +148,6 @@ const AnalyzeLapPage = () => {
                     <div className='p-sm-4 paginaAnalyzeSesionLap'>
                         <div className='row'>
                             <div className='col-sm-12'>
-                                <h2>Lap {number_lap}</h2>
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className='col-sm-12'>
                                 <nav aria-label="breadcrumb">
                                     <ol className="breadcrumb">
                                         <li className="breadcrumb-item">

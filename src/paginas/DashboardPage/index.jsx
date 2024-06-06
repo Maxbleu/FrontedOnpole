@@ -126,8 +126,8 @@ const DashboardPage = () => {
                                         <div className='col-3'>
                                             <div className='row userWelcomeDashboard border rounded'>
                                                 <div className='col-12'>
-                                                    <h1>Welcome</h1>
-                                                    <h1>{user.name}</h1>
+                                                    <h2>Welcome</h2>
+                                                    <h2>{user.name}</h2>
                                                 </div>
                                             </div>
                                             <div className='row mt-4'>
@@ -140,8 +140,8 @@ const DashboardPage = () => {
                                             <Link to="/combinations" className='row border rounded text-decoration-none text-white'>
                                                 <div className='col-12'>
                                                     <div className='row combinacionesDashBoard' style={{height: '40vh'}}>
-                                                        <div className='col-12' style={{marginTop: '25vh'}}>
-                                                            <h3 className='p-5'>Combinaciones para disfrutar</h3>
+                                                        <div className='col-12' style={{marginTop: '20vh'}}>
+                                                            <h3 className='p-5'>Combinaciones</h3>
                                                         </div>
                                                     </div>
                                                 </div>

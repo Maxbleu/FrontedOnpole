@@ -173,6 +173,68 @@ h{
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
+
+.table{
+    --bs-table-bg: none;
+    --bs-table-color: none;
+    thead{
+        background-color: $color-Space-Cadet;
+    }
+}
+
+.table-hover{
+    --bs-table-hover-bg: none;
+}
+
+.table-hover tbody tr:hover{
+    background-color: $color-Cimson !important;
+}
+
+.form-select{
+    border: none;
+    background-color: $color-Cimson !important;
+    color: $color-White !important;
+    font-weight: bold;
+    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e")
+}
+
+select>option{
+    background-color: $color-Raisin-Black;
+    color: $color-English-Violet;
+}
+
+.form-control{
+    border: 2px solid $color-Gray-Clear;
+    border-radius: $border-radius-elements;
+    color: $color-White !important;
+}
+
+.form-control::placeholder{
+    color: $color-Gray-Clear;
+}
+
+.form-control:focus{
+    background-color: transparent;
+}
+
+.btn-outline-secondary{
+    background-color: $color-Cimson;
+    color: $color-White;
+    font-weight: bold;
+    --bs-btn-border-width: none;
+}
+
+.btn-outline-secondary:hover{
+    color: $color-Cimson;
+    background-color: $color-White;
+}
+
+.input-group-text{
+    color: $color-White;
+    background-color: $color-Cimson;
+    border: 1px solid $color-Cimson;
+}
+
 //  NAVBAR
 
 .navbar {
@@ -419,34 +481,8 @@ footer{
 
 //  CARS PAGE
 
-.form-control{
-    border: 2px solid $color-Gray-Clear;
-    border-radius: $border-radius-elements;
-    color: $color-White !important;
-}
-
-.form-control::placeholder{
-    color: $color-Gray-Clear;
-}
-
-.form-control:focus{
-    background-color: transparent;
-}
-
 .inputBuscarMarcas{
     max-width: 800px;
-}
-
-.btn-outline-secondary{
-    background-color: $color-Cimson;
-    color: $color-White;
-    font-weight: bold;
-    --bs-btn-border-width: none;
-}
-
-.btn-outline-secondary:hover{
-    color: $color-Cimson;
-    background-color: $color-White;
 }
 
 .cartaMarca{
@@ -466,20 +502,6 @@ footer{
     width: 11%;
     top: 5px;
     right: 5px;
-}
-
-.form-select{
-    border: none;
-    background-color: $color-Cimson !important;
-    color: $color-White !important;
-    font-weight: bold;
-    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e")
-
-}
-
-select>option{
-    background-color: $color-Raisin-Black;
-    color: $color-English-Violet;
 }
 
 .badge{
@@ -510,12 +532,6 @@ textarea{
 
 .margenesSeccionesTrack{
     margin-top: 6% !important;
-}
-
-.input-group-text{
-    color: $color-White;
-    background-color: $color-Cimson;
-    border: 1px solid $color-Cimson;
 }
 
 //  SIGN UP
@@ -560,9 +576,6 @@ textarea{
 }
 
 
-html,body{
-    height: 100%;
-}
 
 .bg-success{
     background-color: $color-Space-Cadet !important;
@@ -604,53 +617,26 @@ html,body{
 }
 
 .sidebar{
-    width: 280px;
+    width: 90px;
     .navbar-brand{
         height: 5% !important;
     }
-
     .nav-item{
         margin-left: 0px !important;
     }
-}
-
-.sidebarUserImg{
-    width: 50px;
-}
-
-.bi-list{
-    font-size: 30px;
-}
-
-.sidebarUserImg{
-    width:50px;
-}
-
-.sidebarUser{
-    --bs-breadcrumb-divider:'';
-    font-size:14px;
-}
-
-.marginBottonListaSeccionesUser{
-    margin-bottom: 150%;
-}
-
-//  SESSIONS
-.table{
-    --bs-table-bg: none;
-    --bs-table-color: none;
-    thead{
-        background-color: $color-Space-Cadet;
+    .sidebarUserImg{
+        width: 50px;
+    }
+    .bi-list{
+        font-size: 30px;
+    }
+    .sidebarUser{
+        --bs-breadcrumb-divider:'';
+        font-size:14px;
     }
 }
 
-.table-hover{
-    --bs-table-hover-bg: none;
-}
-
-.table-hover tbody tr:hover{
-    background-color: $color-Cimson !important;
-}
+//  SESSIONS
 
 //  ANALYZE
 
@@ -753,18 +739,20 @@ html,body{
     border-color: $color-Raisin-Black !important;
 }
 
-.fondoCabeceraPerfil{
-    background-color: $color-English-Violet;
-}
-
-.fotoBanderaPerfil{
-    width: 50px;
-}
-
-.bi-gear{
-    font-size: 25px;
-}
-
-.fotorPerfil{
-    width: 150px;
+.paginaPerfil{
+    .fondoCabeceraPerfil{
+        background-color: $color-English-Violet;
+    }
+    
+    .fotoBanderaPerfil{
+        width: 50px;
+    }
+    
+    .bi-gear{
+        font-size: 25px;
+    }
+    
+    .fotorPerfil{
+        width: 150px;
+    }
 }

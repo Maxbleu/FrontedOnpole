@@ -138,6 +138,71 @@ h6 {
   padding-right: 0px !important;
 }
 
+.table {
+  --bs-table-bg: none;
+  --bs-table-color: none;
+}
+.table thead {
+  background-color: #322E41;
+}
+
+.table-hover {
+  --bs-table-hover-bg: none;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #DA1832 !important;
+}
+
+.form-select {
+  border: none;
+  background-color: #DA1832 !important;
+  color: #ffffff !important;
+  font-weight: bold;
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") ;
+}
+
+select > option {
+  background-color: #1A1726;
+  color: #4C446B;
+}
+
+.form-control {
+  border: 2px solid #999999;
+  border-radius: 5px;
+  color: #ffffff !important;
+}
+
+.form-control::-moz-placeholder {
+  color: #999999;
+}
+
+.form-control::placeholder {
+  color: #999999;
+}
+
+.form-control:focus {
+  background-color: transparent;
+}
+
+.btn-outline-secondary {
+  background-color: #DA1832;
+  color: #ffffff;
+  font-weight: bold;
+  --bs-btn-border-width: none;
+}
+
+.btn-outline-secondary:hover {
+  color: #DA1832;
+  background-color: #ffffff;
+}
+
+.input-group-text {
+  color: #ffffff;
+  background-color: #DA1832;
+  border: 1px solid #DA1832;
+}
+
 .navbar {
   background-color: #1A1726 !important;
   justify-content: inherit !important;
@@ -338,38 +403,8 @@ footer .col-md-8 .col-md-3 a:hover {
   border-radius: 30px;
 }
 
-.form-control {
-  border: 2px solid #999999;
-  border-radius: 5px;
-  color: #ffffff !important;
-}
-
-.form-control::-moz-placeholder {
-  color: #999999;
-}
-
-.form-control::placeholder {
-  color: #999999;
-}
-
-.form-control:focus {
-  background-color: transparent;
-}
-
 .inputBuscarMarcas {
   max-width: 800px;
-}
-
-.btn-outline-secondary {
-  background-color: #DA1832;
-  color: #ffffff;
-  font-weight: bold;
-  --bs-btn-border-width: none;
-}
-
-.btn-outline-secondary:hover {
-  color: #DA1832;
-  background-color: #ffffff;
 }
 
 .cartaMarca {
@@ -387,19 +422,6 @@ footer .col-md-8 .col-md-3 a:hover {
   width: 11%;
   top: 5px;
   right: 5px;
-}
-
-.form-select {
-  border: none;
-  background-color: #DA1832 !important;
-  color: #ffffff !important;
-  font-weight: bold;
-  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") ;
-}
-
-select > option {
-  background-color: #1A1726;
-  color: #4C446B;
 }
 
 .badge {
@@ -425,12 +447,6 @@ textarea {
 
 .margenesSeccionesTrack {
   margin-top: 6% !important;
-}
-
-.input-group-text {
-  color: #ffffff;
-  background-color: #DA1832;
-  border: 1px solid #DA1832;
 }
 
 .logoOnpoleSignUp {
@@ -468,10 +484,6 @@ textarea {
 
 .buttonAccederLogin {
   width: 100%;
-}
-
-html, body {
-  height: 100%;
 }
 
 .bg-success {
@@ -514,7 +526,7 @@ html, body {
 }
 
 .sidebar {
-  width: 280px;
+  width: 90px;
 }
 .sidebar .navbar-brand {
   height: 5% !important;
@@ -522,42 +534,15 @@ html, body {
 .sidebar .nav-item {
   margin-left: 0px !important;
 }
-
-.sidebarUserImg {
+.sidebar .sidebarUserImg {
   width: 50px;
 }
-
-.bi-list {
+.sidebar .bi-list {
   font-size: 30px;
 }
-
-.sidebarUserImg {
-  width: 50px;
-}
-
-.sidebarUser {
+.sidebar .sidebarUser {
   --bs-breadcrumb-divider:"";
   font-size: 14px;
-}
-
-.marginBottonListaSeccionesUser {
-  margin-bottom: 150%;
-}
-
-.table {
-  --bs-table-bg: none;
-  --bs-table-color: none;
-}
-.table thead {
-  background-color: #322E41;
-}
-
-.table-hover {
-  --bs-table-hover-bg: none;
-}
-
-.table-hover tbody tr:hover {
-  background-color: #DA1832 !important;
 }
 
 .fondoTarjetaInicioSesion {
@@ -654,18 +639,15 @@ html, body {
   border-color: #1A1726 !important;
 }
 
-.fondoCabeceraPerfil {
+.paginaPerfil .fondoCabeceraPerfil {
   background-color: #4C446B;
 }
-
-.fotoBanderaPerfil {
+.paginaPerfil .fotoBanderaPerfil {
   width: 50px;
 }
-
-.bi-gear {
+.paginaPerfil .bi-gear {
   font-size: 25px;
 }
-
-.fotorPerfil {
+.paginaPerfil .fotorPerfil {
   width: 150px;
 }/*# sourceMappingURL=style.css.map */

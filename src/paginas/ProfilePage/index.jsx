@@ -56,7 +56,7 @@ const ProfilePage = () => {
     return (
 
         <Sidebar>
-            <div className='row'>
+            <div className='row paginaPerfil'>
                 <div className='col-12'>
                     <div className='row fondoCabeceraPerfil m-sm-3 border rounded'>
                         <div className='col-12'>

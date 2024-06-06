@@ -226,16 +226,6 @@ const AnalyzeSesionPage = () => {
                         <div className='col-sm-12'>
 
                             <div className='row'>
-
-                                <div className='col-12'>
-
-                                    <h2>Sesion {session_id}</h2>
-
-                                </div>
-
-                            </div>
-
-                            <div className='row'>
                                 <div className='col-sm-12'>
                                     <nav aria-label="breadcrumb">
                                         <ol className="breadcrumb">
