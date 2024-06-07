@@ -144,7 +144,7 @@ const DashboardPage = () => {
                                                 <div className='col-12'>
                                                     <div className='row combinacionesDashBoard' style={{height: '40vh'}}>
                                                         <div className='col-12' style={{marginTop: '20vh'}}>
-                                                            <h3 className='p-5'>Combinaciones</h3>
+                                                            <h3 className='p-5'>Combinations</h3>
                                                         </div>
                                                     </div>
                                                 </div>

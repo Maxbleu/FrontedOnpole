@@ -9,7 +9,7 @@ import axiosClient from "../axios-client";
  * @returns {Object}
  */
 export default function getUserEstadisticas(user_id){
-    return axiosClient.get(`/users/estadistica/${user_id}`)
+    return axiosClient.get(`/users/${user_id}/estadistica`)
         .then(({data})=>{
             return data.data;
         });

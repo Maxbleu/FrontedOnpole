@@ -8,7 +8,7 @@ import axiosClient from "../axios-client";
  * @returns {Object}
  */
 export default function getLatestUserSesion(user_id) {
-    return axiosClient.get(`/users/sesiones/${user_id}/latest`)
+    return axiosClient.get(`/users/${user_id}/sesiones/latest`)
         .then((response) => {
             let latestSesion = {};
             if(typeof response.data === 'object'){

@@ -8,7 +8,7 @@ import axiosClient from '../axios-client';
  */
 export default function getUserSesion(userId){
 
-    return axiosClient.get(`/users/sesiones/${userId}`)
+    return axiosClient.get(`/users/${userId}/sesiones`)
         .then(({data}) => {
             return data.data;
         });
