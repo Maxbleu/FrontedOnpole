@@ -171,11 +171,28 @@ const DashboardPage = () => {
                                             </div>
                                         </div>
                                     </div>
+                                    <div className='row gx-5 mt-3'>
+                                        <div className='col-3'></div>
+                                        <div className='col-6'>
+                                            <div className='row border rounded text-center estadisticasUsuarioDashboard'>
+                                                <div className='col-4'>
+                                                    <h3>LH: {estadisticas.number_hot_laps}</h3>
+                                                </div>
+                                                <div className='col-4'>
+                                                    <h3>TS: {estadisticas.number_total_sesions}</h3>
+                                                </div>
+                                                <div className='col-4'>
+                                                    <h3>TL: {estadisticas.number_total_laps}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-3'></div>
+                                    </div>
                                     <div className='row row-cols-3 gx-5'>
                                         <div className='col-3'>
-                                            <Link to="/bestplayers" className='row fondoHoverDefaultPrimary border rounded marginTopLeaderboard text-decoration-none text-white padding_bottom_Leaderboard'>
+                                            <Link to="/bestplayers" className='row mt-3 fondoHoverDefaultPrimary border rounded text-decoration-none text-white padding_bottom_Leaderboard'>
                                                 <div className='col-12'>
-                                                    <div className='row text-center text-md-start p-3'>
+                                                    <div className='row text-center text-md-start p-2'>
                                                         <div className='col-12'>
                                                             <h5>Glogal Rank</h5>
                                                         </div>
@@ -194,39 +211,35 @@ const DashboardPage = () => {
                                             </Link>
                                         </div>
                                         <div className='col-6'>
-                                            <div className='row mt-4 border rounded text-center estadisticasUsuarioDashboard'>
-                                                <div className='col-4'>
-                                                    <h3>LH: {estadisticas.number_hot_laps}</h3>
-                                                </div>
-                                                <div className='col-4'>
-                                                    <h3>TS: {estadisticas.number_total_sesions}</h3>
-                                                </div>
-                                                <div className='col-4'>
-                                                    <h3>TL: {estadisticas.number_total_laps}</h3>
-                                                </div>
-                                            </div>
-                                            <div className='row mt-4 border rounded'>
-                                                <div className='col-12 d-flex justify-content-center'>
-                                                    <ResponsiveContainer width="80%" aspect={3}>
-                                                        <BarChart
-                                                            width={500}
-                                                            height={300}
-                                                            data={vueltasAnalizadasAlMesPorUser}
-                                                            margin={{
-                                                                top: 5,
-                                                                right: 30,
-                                                                left: 20,
-                                                                bottom: 5,
-                                                            }}
-                                                            >
-                                                            <CartesianGrid strokeDasharray="3 3" />
-                                                            <XAxis dataKey="nombre" />
-                                                            <YAxis />
-                                                            <Tooltip />
-                                                            <Legend />
-                                                            <Bar dataKey="vueltasTotales" fill="#DA1832" activeBar={<Rectangle fill="#4C446B" stroke="purple" />} />
-                                                        </BarChart>
-                                                    </ResponsiveContainer>
+                                            <div className='row mt-3 border rounded'>
+                                                <div className='col-12 '>
+                                                    <div className='row'>
+                                                        <div className='col-12'>
+                                                            <h4 className='ms-3'>Monthly analyzed laps</h4>
+                                                        </div>
+                                                        <hr />
+                                                    </div>
+                                                    <div className='row'>
+                                                        <div className='col-12 d-flex justify-content-center'>
+                                                            <ResponsiveContainer width="62%" height={"100%"} aspect={3}>
+                                                                <BarChart
+                                                                    width={500}
+                                                                    height={300}
+                                                                    data={vueltasAnalizadasAlMesPorUser}
+                                                                    margin={{
+                                                                        top: 5,
+                                                                        bottom: 5,
+                                                                    }}
+                                                                    >
+                                                                    <CartesianGrid strokeDasharray="3 3" />
+                                                                    <XAxis dataKey="nombre" />
+                                                                    <YAxis />
+                                                                    <Tooltip />
+                                                                    <Bar dataKey="vueltasTotales" fill="#DA1832" activeBar={<Rectangle fill="#4C446B" stroke="purple" />} />
+                                                                </BarChart>
+                                                            </ResponsiveContainer>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -241,7 +254,7 @@ const DashboardPage = () => {
                                                         </div>
                                                     </div>
                                                 ) : (
-                                                    <div className='row marginTopLeaderboard border rounded fondoHoverDefaultPrimary'>
+                                                    <div className='row mt-3 border rounded fondoHoverDefaultPrimary'>
                                                         <div className='col-12'>
                                                             <div className='row'>
                                                                 <div className='col-12 p-2 ps-md-3'>
