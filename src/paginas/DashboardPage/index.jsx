@@ -249,7 +249,7 @@ const DashboardPage = () => {
                                                     <div className='row marginTopLeaderboard border rounded p-4 text-center'>
                                                         <div className='col-12'>
                                                             <div className='row'>
-                                                                <h4>No hay sesiones analizadas por el usuario</h4>
+                                                                <h4>No sessions analyzed by the user.</h4>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -379,7 +379,7 @@ const DashboardPage = () => {
                                                     <div className='row mt-4 border rounded p-4 text-center'>
                                                         <div className='col-12'>
                                                             <div className='row'>
-                                                                <h4>No hay sesiones analizadas por el usuario</h4>
+                                                                <h4>No sessions analyzed by the user.</h4>
                                                             </div>
                                                         </div>
                                                     </div>

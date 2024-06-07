@@ -235,7 +235,7 @@ const LeaderboardPage = () => {
 
                                     <div className='col-sm-8 text-center'>
                                         <h3>
-                                            No se han encontrado elementos relacionados con la busqueda
+                                            No items related to the search were found.
                                         </h3>
                                     </div>
 

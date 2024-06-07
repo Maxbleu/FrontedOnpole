@@ -27,7 +27,7 @@ const BestPlayersPage = () => {
                     </tr>
                     <div className="offcanvas offcanvas-end" tabIndex="-1" id={offCanvasId} aria-labelledby="offcanvasRightLabel">
                         <div className="offcanvas-header">
-                            <h3 className="offcanvas-title ms-2" id="offcanvasRightLabel">Perfil</h3>
+                            <h3 className="offcanvas-title ms-2" id="offcanvasRightLabel">Profile</h3>
                             <button type="button" className="btn-close me-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div className="offcanvas-body mt-5">
@@ -43,7 +43,7 @@ const BestPlayersPage = () => {
                             </div>
                             <div className="row me-0 mt-3">
                                 <div className="col-12 m-2">
-                                    <h3 className="text-white">Estadisticas</h3>
+                                    <h3 className="text-white">Stadistics</h3>
                                 </div>
                             </div>
                             <div className="row me-0 text-white ps-2 ">
@@ -106,7 +106,7 @@ const BestPlayersPage = () => {
                         ) : (
                             <div className='row'>
                                 <div className='col-12'>
-                                    <h4>No hay sesiones analizadas por el usuario</h4>
+                                    <h4>No sessions analyzed by the user.</h4>
                                 </div>
                             </div>
                         )

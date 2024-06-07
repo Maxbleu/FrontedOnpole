@@ -104,7 +104,7 @@ const SessionsPage = () => {
 
                                 <div className='col-12'>
 
-                                    <h4>No hay sesiones analizadas por el usuario</h4>
+                                    <h4>There are no sessions analyzed by the user.</h4>
 
                                 </div>
 

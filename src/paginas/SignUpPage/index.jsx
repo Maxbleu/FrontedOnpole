@@ -192,8 +192,8 @@ const SignUpPage = () => {
                             </div>
                         </div>
                         <div className='col-sm-8 col-md-8 col-lg-8 text-center text-sm-start'>
-                            <span className='me-3'>¿Ya tienes una cuenta?</span>
-                            <Link to='/login' className='text-decoration-none buttonIniciarDeSignUpPage'>Inicar Sesion</Link>
+                            <span className='me-3'>Do you already have an account?</span>
+                            <Link to='/login' className='text-decoration-none buttonIniciarDeSignUpPage'>Log In</Link>
                         </div>
                     </div>
 

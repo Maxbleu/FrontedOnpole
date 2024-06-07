@@ -63,7 +63,7 @@ const SettingsPage = () => {
                     if(refs[columnas[iterador]] === confirmNewPasswordRef.current.value){
                         payloadUser[columnas[iterador]] = refs[columnas[iterador]];
                     }else{
-                        setMensageSecurityContraseñasNoCoinciden("Las contraseñas no coinciden")
+                        setMensageSecurityContraseñasNoCoinciden("The passwords do not match")
                     }
                 }
             }
@@ -74,10 +74,10 @@ const SettingsPage = () => {
                 if(response.status === 200){
                     if(columnas[0] in payloadUser || columnas[1] in payloadUser){
                         setUserHaSidoModificado(true);
-                        setMessageAccount("Las datos han sido actualizados");
+                        setMessageAccount("The data has been updated");
                         setIsDisabledInputsAccount(true);
                     }else if(columnas[2]){
-                        setMensageSecurityContraseñasActualizadas("Las contraseñas han sido actualizadas");
+                        setMensageSecurityContraseñasActualizadas("The passwords have been updated.");
                         setIsDisabledInputsSecurity(true);
                     }
                 }

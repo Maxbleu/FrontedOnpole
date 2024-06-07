@@ -8,7 +8,6 @@ import { useStateContext } from '../../contexts/ContextProvider';
 
 //  COMPONENTES
 import Sidebar from '../../componentes/Sidebar';
-import AjaxLoader from './../../componentes/AjaxLoader';
 import CustomTooltip from '../../componentes/CustomToolTip';
 
 //  SERVICES
@@ -161,7 +160,7 @@ const AnalyzeLapPage = () => {
                                             </Link>
                                         </li>
                                         <li className="breadcrumb-item active text-white" aria-current="page">
-                                            Vuelta {number_lap}
+                                            Lap {number_lap}
                                         </li>
                                     </ol>
                                 </nav>
