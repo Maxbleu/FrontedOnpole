@@ -13,6 +13,6 @@ export default function postSignUp(payload){
                 return data;
             })
             .catch(err => {
-                return err;
+                throw err;
             });
 }

@@ -16,15 +16,13 @@ import usePaises from './../../hooks/usePaises';
 
 const SignUpPage = () => {
 
+    const CodeValidationError = 422;
+
     //  REFS
     const nameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
     const confirmPasswordRef = useRef();
-    const [paisSeleccionado, setPaisSeleccionado] = useState({
-        nombre : "Andorra",
-        valor : "an"
-    });
 
     //  NAVEGADOR
     const navigate = useNavigate();
@@ -35,9 +33,12 @@ const SignUpPage = () => {
     //  HOOCKS
     const {paises, haRecibidoPaises} = usePaises("es");
 
-    //  ERRORS
-    const [errors, setErrors] = useState([]);
-    const CodeValidationError = 422;
+    //  errorMessage
+    const [errorMessage, setErrorMessage] = useState("");
+    const [paisSeleccionado, setPaisSeleccionado] = useState({
+        nombre : "Andorra",
+        valor : "an"
+    });
 
     /**
      * Este método se encargará de conectarse
@@ -55,7 +56,7 @@ const SignUpPage = () => {
             name: nameRef.current.value,
             email: emailRef.current.value,
             password: passwordRef.current.value,
-            confirmPassword: confirmPasswordRef.current.value,
+            password_confirmation: confirmPasswordRef.current.value,
             pais : paisSeleccionado.valor
         };
 
@@ -69,7 +70,8 @@ const SignUpPage = () => {
         }).catch((err)=>{
             const response = err.response;
             if(response && response.status === CodeValidationError){
-                setErrors(response.data.errors);
+                let errorMensaje = response.data.message.split("(")[0];
+                setErrorMessage(errorMensaje);
             }
         });
     };
@@ -108,15 +110,13 @@ const SignUpPage = () => {
                     <div className='col-sm-1 col-md-1 col-md-2'></div>
                 </div>
                 {
-                    errors.length > 0 ? (
-                        <div className="row alert margenes-landing alert alert-danger" role="alert">
+                    errorMessage !== "" ? (
+                        <div className="row margenes-landing">
                             <div className='col-sm-1 col-md-1 col-lg-2'></div>
                             <div className='col-sm-10 col-md-10 col-lg-8'>
-                                {
-                                    Object.keys(errors).map(key => {
-                                        return <p className='fw-bold' key={key}>{errors[key][0]}</p>
-                                    })
-                                }
+                                <div class="alert alert-danger" role="alert">
+                                    {errorMessage}
+                                </div>
                             </div>
                             <div className='col-sm-1 col-md-1 col-lg-2'></div>
                         </div>
