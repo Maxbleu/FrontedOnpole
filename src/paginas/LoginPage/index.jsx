@@ -41,6 +41,7 @@ const LoginPage = () => {
      */
     const handleLogin = async (e) => {
         e.preventDefault();
+        setErrorMessage("");
 
         const payload = {
             email : emailRef.current.value,
@@ -94,7 +95,7 @@ const LoginPage = () => {
 
                     <input type="hidden" name="_token" value={csrfToken} />
 
-                    <div className='row margenes-landing'>
+                    <div className={`row margenes-landing ${errorMessage === "" ? "mt-4" : "" }`}>
                         <div className='col-md-2 col-lg-4'></div>
                         <div className='col-md-8 col-lg-4'>
                             <div className="input-group mb-3">
