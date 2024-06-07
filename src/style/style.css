@@ -650,4 +650,18 @@ textarea {
 }
 .paginaPerfil .fotorPerfil {
   width: 150px;
+}
+
+.fotosHomePage .circuitoNordschleife {
+  top: 5% !important;
+  width: 70%;
+}
+.fotosHomePage .cochePorsche2016LM {
+  width: 30%;
+}
+.fotosHomePage .circuitoSilverstone {
+  width: 40%;
+}
+.fotosHomePage .cocheMazda787B {
+  width: 45%;
 }/*# sourceMappingURL=style.css.map */

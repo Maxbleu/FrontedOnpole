@@ -13,9 +13,10 @@ import apps from '../../mocks/mock-apps';
 
 //  IMAGES
 import LogoAssetto from './../../../public/images/logoAssetto.png';
-
-//  CONTEXTS
-import { useStateContext } from '../../contexts/ContextProvider';
+import CircuitoNordschleife from './../../../public/images/circuitos/nordschleife/nordschleife/map.png';
+import CochePorche from './../../../public/images/coches/porsche/porsche_919_hybrid_2016.png'
+import CircuitoSilverstone from './../../../public/images/circuitos/silverstone/layout_gp/map.png';
+import CocheMazda787B from './../../../public/images/coches/mazda/mazda_787b.png';
 
 const HomePage = () => {
 
@@ -74,10 +75,11 @@ const HomePage = () => {
                             <img src={LogoAssetto} className='logoAssettoCorsa' alt="Log de Assetto Corsa" />
                             <ButtonGetStarted></ButtonGetStarted>
                         </div>
-                        <div className='col-md-6 col-sm-0'>
-                            <div>
-
-                            </div>
+                        <div className='col-md-6 col-sm-0 d-none d-md-block text-end fotosHomePage p-5'>
+                            <img className='circuitoNordschleife' src={CircuitoNordschleife} alt="Circuito Nordschleife" />
+                            <img className='cochePorsche2016LM' src={CochePorche} alt="Porsche LM 2016" />
+                            <img className='cocheMazda787B' src={CocheMazda787B} alt="Coche mazda 787B" />
+                            <img className='circuitoSilverstone' src={CircuitoSilverstone} alt="Circuito Siverstone" />
                         </div>
                     </div>
 
