@@ -19,8 +19,6 @@ import { useStateContext } from '../../contexts/ContextProvider';
 
 const HomePage = () => {
 
-    const {idioma, mockIdioma} = useStateContext();
-
     /**
      * Este método se encargará de
      * mostrar todas las cartas de
