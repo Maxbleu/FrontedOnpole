@@ -14,7 +14,12 @@ import apps from '../../mocks/mock-apps';
 //  IMAGES
 import LogoAssetto from './../../../public/images/logoAssetto.png';
 
+//  CONTEXTS
+import { useStateContext } from '../../contexts/ContextProvider';
+
 const HomePage = () => {
+
+    const {idioma, mockIdioma} = useStateContext();
 
     /**
      * Este método se encargará de

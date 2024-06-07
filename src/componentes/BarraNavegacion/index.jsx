@@ -4,7 +4,16 @@ import { Link } from 'react-router-dom';
 //  IMAGES
 import Logo from './../../../public/images/logoOnpole.png';
 
+//  CONTEXTS
+import { useStateContext } from '../../contexts/ContextProvider';
+
 const BarraNavegacion = () => {
+
+    const {setIdioma} = useStateContext();
+
+    function insertarIdiomaSeleccionado(event){
+        
+    }
 
     return (
         <nav className="navbar navbar-expand-sm bg-dark navbar-dark sticky-top rounded-0">
@@ -35,8 +44,8 @@ const BarraNavegacion = () => {
 
                 <div className='navbar-nav d-flex'>
                     <div className='d-flex'>
-                        <img role="button" className='mt-2 mb-2 me-2 rounded-1' src="https://flagcdn.com/w40/es.webp" alt="Logo de banderas de España" />
-                        <img role="button" className='mt-2 mb-2 rounded-1' src="https://flagcdn.com/w40/gb.webp" alt="Logo de banderas de Gran Bretaña" />
+                        <img value={"es"} onClick={insertarIdiomaSeleccionado} role="button" className='mt-2 mb-2 me-2 rounded-1' src="https://flagcdn.com/w40/es.webp" alt="Logo de banderas de España" />
+                        <img value={"en"} onClick={insertarIdiomaSeleccionado} role="button" className='mt-2 mb-2 rounded-1' src="https://flagcdn.com/w40/gb.webp" alt="Logo de banderas de Gran Bretaña" />
                     </div>
                     <div className='nav-item'>
                         <Link className="nav-link text-decoration-none" to="/signup">Sign Up</Link>

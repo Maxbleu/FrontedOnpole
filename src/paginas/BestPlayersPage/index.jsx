@@ -17,14 +17,15 @@ const BestPlayersPage = () => {
      * @returns {tr}
      */
     function mostrarRanks(rank, index){
+        let offCanvasId = `offcanvasRight${index}`;
         return  <>
-                    <tr key={rank.posicion+index} role="button" tabIndex="0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <tr key={rank.posicion+index} role="button" tabIndex="0" data-bs-toggle="offcanvas" data-bs-target={`#${offCanvasId}`} aria-controls="offcanvasRight">
                         <td>{rank.posicion}</td>
                         <td>{rank.user.pais}</td>
                         <td>{rank.user.name}</td>
                         <td>{rank.number_total_laps}</td>
                     </tr>
-                    <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div className="offcanvas offcanvas-end" tabIndex="-1" id={offCanvasId} aria-labelledby="offcanvasRightLabel">
                         <div className="offcanvas-header">
                             <h3 className="offcanvas-title ms-2" id="offcanvasRightLabel">Perfil</h3>
                             <button type="button" className="btn-close me-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
