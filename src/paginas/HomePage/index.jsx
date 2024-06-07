@@ -134,8 +134,8 @@ const HomePage = () => {
             <section className='row seccionApps margenes-landing'>
                 <div className='col-sm-5 col-lg-6'>
                     <h2>
-                        Apps externas para <br />
-                        la comunidad
+                        External Apps for <br />
+                        the Community
                     </h2>
                     <p className='mb-5 mb-sm-0 textoSecundarioApp'>
                         We also provide our consumers with <br />
