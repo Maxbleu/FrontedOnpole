@@ -55,7 +55,8 @@ const LoginPage = () => {
         }).catch((err)=>{
             const response = err.response;
             if(response && response.status === CodeValidationError){
-                setErrorMessage(response.data.message);
+                let errorMensaje = response.data.message.split("(")[0];
+                setErrorMessage(errorMensaje);
             }
         });
     };
