@@ -144,7 +144,7 @@ const AnalyzePage = () => {
                 try {
                     sesionObj = JSON.parse(e.target.result);
                 } catch (error) {
-                    alert('Error parsing JSON file');
+                    alert('The file must be in the content manager session format.');
                 }
 
                 //  Comprobamos que en el objeto hay 
