@@ -97,6 +97,27 @@ const AnalyzePage = () => {
     }
 
     /**
+     * Este método se encarga de comprobar si
+     * el objeto sesion es correcto
+     */
+    function comprobarObjetoSesion(sesionObj){
+
+        if(
+            "track" in sesionObj && 
+            "number_of_sessions" in sesionObj &&
+            "players" in sesionObj &&
+            "sessions" in sesionObj &&
+            "extras" in sesionObj &&
+            "__raceIni" in sesionObj &&
+            "__quickDrive" in sesionObj){
+                return true;
+        }
+
+        return false;
+
+    }
+
+    /**
      * Este método se encarga de enviar
      * a la base de datos del fichero
      * introducido por el usuario
@@ -123,32 +144,41 @@ const AnalyzePage = () => {
                 try {
                     sesionObj = JSON.parse(e.target.result);
                 } catch (error) {
-                    console.error('Error parsing JSON:', error);
                     alert('Error parsing JSON file');
                 }
 
-                //  Comprobamos que el fichero
-                //  de la sesion es de solo un jugador
-                if(sesionObj.players.length === 1){
+                //  Comprobamos que en el objeto hay 
+                //  una propiedad llamada players
+                if(comprobarObjetoSesion(sesionObj)){
 
-                    //  Indicamos que el usuario a
-                    //  introducido una sesion de un solo jugador
-                    setIsOnePlayerSesion(true);
+                    //  Comprobamos que el fichero
+                    //  de la sesion es de solo un jugador
+                    if(sesionObj.players.length === 1){
 
-                    //  Obtenemos la sesion
-                    setPayloadSesion(obtenerSesion(sesionObj, fileName));
+                        //  Indicamos que el usuario a
+                        //  introducido una sesion de un solo jugador
+                        setIsOnePlayerSesion(true);
 
+                        //  Obtenemos la sesion
+                        setPayloadSesion(obtenerSesion(sesionObj, fileName));
+
+                    }else{
+
+                        setErrorMensage("The session file must have only one player to be analyzed.");
+                        setIsOnePlayerSesion(false);
+
+                    }
                 }else{
 
-                    setErrorMensage("El fichero de la sesion debe haber un solo jugador para ser analizado");
-                    setIsOnePlayerSesion(false);
+                    setErrorMensage("The file must be in the content manager session format.");
+                    setIncorrectTypeFile(true);
 
                 }
 
             };
             reader.readAsText(file);
         }else{
-            setErrorMensage("El fichero de la sesion debe ser .json");
+            setErrorMensage("The session file must be .json.");
             setIncorrectTypeFile(true);
         }
 
