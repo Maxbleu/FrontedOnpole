@@ -1,5 +1,6 @@
 //  DEPENDENCIAS
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 
 //  CONTEXT
@@ -13,6 +14,7 @@ import AjaxLoader from '../../componentes/AjaxLoader';
 import UseUserEstadisticas from '../../hooks/useUserEtadisticas';
 import UseGlobalRank from '../../hooks/useGlobalRank';
 import UseLatestUserSesion from '../../hooks/useLatestUserSesion';
+import UseAnalyzedLapsMonthyUser from '../../hooks/useAnalyzedLapsMonthyUser';
 
 //  MOCKS
 import citasPilotos from '../../mocks/mock-citas';
@@ -27,9 +29,10 @@ const DashboardPage = () => {
 
     const {user, haRecibidoUser} = useStateContext();
 
+    const {vueltasAnalizadasAlMesPorUser,haRecibidoVueltasAnalizadasAlMesPorUser} = UseAnalyzedLapsMonthyUser(user.id);
     const {estadisticas, haRebicibidoUserEstadisticas} = UseUserEstadisticas(user.id);
-    const {globalRank, haRecibidoGlobalRank} = UseGlobalRank();
     const {latestSesion, haRecibidoLaUltimaSesionUsuario} = UseLatestUserSesion(user.id);
+    const {globalRank, haRecibidoGlobalRank} = UseGlobalRank();
 
     const [listRank, setListRank] = useState([]);
     const [imagenCocheUltimaSesion, setImagenCocheUltimaSesion] = useState("");
@@ -115,7 +118,7 @@ const DashboardPage = () => {
 
         <Sidebar>
             {
-                !haRecibidoUser && !haRebicibidoUserEstadisticas && user !== null ? (
+                !haRecibidoUser && !haRebicibidoUserEstadisticas && user !== null && !haRecibidoVueltasAnalizadasAlMesPorUser ? (
                     <AjaxLoader></AjaxLoader>
                 ) : (
                     <div className='row'>
@@ -170,7 +173,7 @@ const DashboardPage = () => {
                                     </div>
                                     <div className='row row-cols-3 gx-5'>
                                         <div className='col-3'>
-                                            <Link to="/bestplayers" className={'row fondoHoverDefaultPrimary border rounded marginTopLeaderboard text-decoration-none text-white padding_bottom_Leaderboard'}>
+                                            <Link to="/bestplayers" className='row fondoHoverDefaultPrimary border rounded marginTopLeaderboard text-decoration-none text-white padding_bottom_Leaderboard'>
                                                 <div className='col-12'>
                                                     <div className='row text-center text-md-start p-3'>
                                                         <div className='col-12'>
@@ -203,7 +206,28 @@ const DashboardPage = () => {
                                                 </div>
                                             </div>
                                             <div className='row mt-4 border rounded'>
-
+                                                <div className='col-12 d-flex justify-content-center'>
+                                                    <ResponsiveContainer width="80%" aspect={3}>
+                                                        <BarChart
+                                                            width={500}
+                                                            height={300}
+                                                            data={vueltasAnalizadasAlMesPorUser}
+                                                            margin={{
+                                                                top: 5,
+                                                                right: 30,
+                                                                left: 20,
+                                                                bottom: 5,
+                                                            }}
+                                                            >
+                                                            <CartesianGrid strokeDasharray="3 3" />
+                                                            <XAxis dataKey="nombre" />
+                                                            <YAxis />
+                                                            <Tooltip />
+                                                            <Legend />
+                                                            <Bar dataKey="vueltasTotales" fill="#DA1832" activeBar={<Rectangle fill="#4C446B" stroke="purple" />} />
+                                                        </BarChart>
+                                                    </ResponsiveContainer>
+                                                </div>
                                             </div>
                                         </div>
                                         <div className='col-3'>
