@@ -30,7 +30,7 @@ const LoginPage = () => {
     const {setToken, setUser, csrfToken, setCsrfToken} = useStateContext();
 
     //  USE STATES
-    const [errors, setErrors] = useState([]);
+    const [errorMessage, setErrorMessage] = useState("");
 
     /**
      * Este método se encarga de recoger
@@ -54,7 +54,7 @@ const LoginPage = () => {
         }).catch((err)=>{
             const response = err.response;
             if(response && response.status === CodeValidationError){
-                setErrors(response.data.errors);
+                setErrorMessage(response.data.message);
             }
         });
     };
@@ -74,7 +74,23 @@ const LoginPage = () => {
                     </div>
                 </div>
 
-                <form onSubmit={handleLogin} className='mt-5'>
+                {
+                    errorMessage !== "" ? (
+                        <div className='row margenes-landing mt-3'>
+                            <div className='col-md-2 col-lg-4'></div>
+                            <div className='col-md-8 col-lg-4'>
+                                <div class="alert alert-danger" role="alert">
+                                    {errorMessage}
+                                </div>
+                            </div>
+                            <div className='col-md-2 col-lg-4'></div>
+                        </div>
+                    ) : (
+                        <></>
+                    )
+                }
+
+                <form onSubmit={handleLogin}>
 
                     <input type="hidden" name="_token" value={csrfToken} />
 

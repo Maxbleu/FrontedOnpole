@@ -13,6 +13,6 @@ export default function postLogin(payload){
                 return data;
             })
             .catch(err => {
-                return err;
+                throw err;
             });
 }
