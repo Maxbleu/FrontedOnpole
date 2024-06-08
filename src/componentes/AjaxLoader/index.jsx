@@ -1,4 +1,4 @@
-//  AJAX LOADER
+//  IMAGENES
 import LoaderGIF from './../../../public/images/AjaxLoader.gif';
 
 const AjaxLoader = () => {

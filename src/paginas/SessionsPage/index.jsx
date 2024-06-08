@@ -18,7 +18,7 @@ const SessionsPage = () => {
 
     const {user} = useStateContext();
 
-    const {userSesions, haRecibidoUserSesion} = UseUserSesion(user);
+    const {userSesions, haRecibidoUserSesion} = UseUserSesion(user.id);
 
     const navigate = useNavigate();
 

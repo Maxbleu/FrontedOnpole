@@ -7,9 +7,12 @@ import axiosClient from "../axios-client";
  * los mejores usuarios en la web
  * @returns {Object}
  */
-export default function getGlobalRank(numberPage) {
-    return axiosClient.get(`/estadistica/global?page=${numberPage}`)
+export default function getGlobalRank() {
+    return axiosClient.get("/estadistica/global")
         .then(response => {
-            return response.data;
+            const ranks = response.data.data;
+            return ranks.map((rank, index) => {
+                return { ...rank, posicion: index + 1 };
+            });
         });
 }

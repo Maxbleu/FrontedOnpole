@@ -8,12 +8,8 @@ import { useEffect, useState } from "react";
 
 const BestPlayersPage = () => {
 
-    //  USE STATES
-    const [numberPage, setNumberPage] = useState(1);
-    const [esLaUltimaPagina, setEsLaUltimaPagina] = useState(false);
-
     //  HOOCKS
-    const {globalRank, haRecibidoGlobalRank, meta} = UseGlobalRank(numberPage);
+    const {globalRank, haRecibidoGlobalRank} = UseGlobalRank();
 
     /**
      * Este método se encarga de mostrar
@@ -75,14 +71,6 @@ const BestPlayersPage = () => {
                 </>
     }
 
-    useEffect(()=>{
-        if(JSON.stringify(meta) !== "{}"){
-            if(meta.current_page === meta.last_page){
-                setEsLaUltimaPagina(true);
-            }
-        }
-    },[meta])
-
     return (
         <Sidebar>
             <div className="p-sm-5">
@@ -128,13 +116,6 @@ const BestPlayersPage = () => {
                         )
                     )
                 }
-                <div className="row">
-                    <div className="col-sm-5"></div>
-                    <div className="col-sm-2 text-center">
-                        <button className="btn btn-outline-secondary w-100" disabled={esLaUltimaPagina} type="button" id="inputGroupFileAddon03" onClick={() => setNumberPage(prevNumberPage => prevNumberPage + 1)}>Load more</button>
-                    </div>
-                    <div className="col-sm-5"></div>
-                </div>
             </div>
         </Sidebar>
     )

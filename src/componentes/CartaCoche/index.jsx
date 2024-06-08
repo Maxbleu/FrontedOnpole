@@ -1,5 +1,10 @@
 const CartaCoche = (props) => {
 
+    /**
+     * Este método se encarga de mostrar
+     * la categoria del coche
+     * @returns {span}
+     */
     function mostrarCategoria(){
         let backgroundSeleccionado;
         let nombreCategoria;

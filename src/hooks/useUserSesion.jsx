@@ -4,29 +4,39 @@ import { useEffect, useState } from "react";
 //  SERVICES
 import getUserSesion from "../services/getUserSesion";
 
-const UseUserSesion = (user) => {
+//  EXPLICACIÓN
+//  Este hoock se encarga de obtener las
+//  sesiones de un usuario a través de
+//  su id
+const UseUserSesion = (user_id) => {
 
     const [haRecibidoUserSesion, setHaRecibidoUserSesion] = useState(false);
     const [userSesions, setUserSesions] = useState([]);
 
     /**
      * Este hoock solo se ejecuta cuando
-     * el payloadSesion es diferente al
-     * insertado incialmente
+     * reciba el id del usuario y en el 
+     * primer rendenrizado del componente
+     * padre
      */
     useEffect(()=>{
-        if(JSON.stringify(user) !== "{}"){
+        //  Comprobamos que el usuario no sea undefined
+        if(user_id !== undefined){
+            //  Solicitamos las sesiones del usuario
             obtenerUserSesion();
         }
-    },[user])
+    },[user_id])
 
     /**
-     * Este método se encarga de guardar
-     * todas las sesiones del usuario
+     * Este método se encarga de solicitar
+     * todas las sesiones analizadas del usuario
      */
     function obtenerUserSesion(){
-        getUserSesion(user.id).then((userSesions)=>{
+        //  Solicita todas las sesión del usuario
+        getUserSesion(user_id).then((userSesions)=>{
+            //  Guardamos la lista de sesión analizadas
             setUserSesions(userSesions);
+            //  Indicamos que hemos que recibido la lista de sesiones analizadas
             setHaRecibidoUserSesion(true);
         });
     }

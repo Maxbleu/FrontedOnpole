@@ -22,14 +22,17 @@ import imagenes_circuitos from './../../mocks/mocks-imagenes/mock-imagenes-circu
 
 const AnalyzeLapPage = () => {
 
+    //  CONSTANTES
     const session_id = (useParams("session_id")).session_id;
     const number_lap = parseInt((useParams("number_lap")).number_lap);
 
+    //  CONTEXTS
     const {user, vueltaSeleccionada, setVueltaSeleccionada, sesionSeleccionada, setSesionSeleccionada, imagenCircuitoSesion, setImagenCircuitoSesion, imagenCocheSesion, setImagenCocheSesion} = useStateContext();
+    
+    //  USE STATES
     const [haRecibidoSesionSeleccionada, setHaRecibidoSesionSeleccionada] = useState(false);
     const [elComponenteEstaListo, setElComponenteEstaListo] = useState(false);
     const [mejorVuelta, setMejorVuelta] = useState({});
-
     const [vueltasACompararGrafico, setVueltasACompararGrafico] = useState([]);
 
     /**
@@ -71,15 +74,26 @@ const AnalyzeLapPage = () => {
         return tiempoFormateado;
     }
 
+    /**
+     * Este hoock se ejecutará en el primer renderizado
+     * del componente para comprobar si hay una sesion
+     * seleccionada por el usuario
+     */
     useEffect(()=>{
+        //  Comprobamos si hay una sesión seleccionada
+        //  por el usuario
         if(JSON.stringify(sesionSeleccionada) === "{}"){
 
+            //  Solicitamos la sesión por el id de esta
             getSesionById(session_id).then((sesion)=>{
-
+                //  Insertamos la sesión seleccioanda
                 setSesionSeleccionada(sesion);
+                //  Insertamos la vuelta de la sesión seleccionada
                 setVueltaSeleccionada(sesion.vueltas.find((vuelta)=>{
                     return vuelta.numero_vuelta_sesion === number_lap;
                 }));
+
+                //  Indicamos que ha recibido la sesión
                 setHaRecibidoSesionSeleccionada(true);
 
             });
