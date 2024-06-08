@@ -7,11 +7,12 @@ import axiosClient from "../axios-client"
  * han hecho una sesion con un circuito y
  * coche especifico.
  * @param {Object} payloadCombination
+ * @param {number} numberPage
  * @returns {Array}
  */
-export default function getCombination(payloadCombination){
-    return axiosClient.get(`/sesiones/combination/${payloadCombination.circuito_id}/${payloadCombination.coche_id}`)
-        .then(({data})=>{
-            return data.data;
+export default function getCombination(payloadCombination, numberPage){
+    return axiosClient.get(`/vueltas/combination/${payloadCombination.circuito_id}/${payloadCombination.coche_id}?page=${numberPage}`)
+        .then((response)=>{
+            return response.data;
         });
 }

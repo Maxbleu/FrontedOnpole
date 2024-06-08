@@ -4,10 +4,16 @@ import AjaxLoader from "../../componentes/AjaxLoader";
 
 //  HOOCKS
 import UseGlobalRank from '../../hooks/useGlobalRank';
+import { useEffect, useState } from "react";
 
 const BestPlayersPage = () => {
 
-    const {globalRank, haRecibidoGlobalRank} = UseGlobalRank();
+    //  USE STATES
+    const [numberPage, setNumberPage] = useState(1);
+    const [esLaUltimaPagina, setEsLaUltimaPagina] = useState(false);
+
+    //  HOOCKS
+    const {globalRank, haRecibidoGlobalRank, meta} = UseGlobalRank(numberPage);
 
     /**
      * Este método se encarga de mostrar
@@ -69,6 +75,14 @@ const BestPlayersPage = () => {
                 </>
     }
 
+    useEffect(()=>{
+        if(JSON.stringify(meta) !== "{}"){
+            if(meta.current_page === meta.last_page){
+                setEsLaUltimaPagina(true);
+            }
+        }
+    },[meta])
+
     return (
         <Sidebar>
             <div className="p-sm-5">
@@ -82,27 +96,29 @@ const BestPlayersPage = () => {
                         <AjaxLoader></AjaxLoader>
                     ) : (
                         globalRank.length > 0 ? (
-                            <div className='row'>
-                                <div className='col-12'>
-                                    <div className='table-responsive rounded mt-3'>
-                                        <table className="table table-dark table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">POS</th>
-                                                    <th scope="col">FLAG</th>
-                                                    <th scope="col">NAME</th>
-                                                    <th scope="col">TOTAL LAPS</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {
-                                                    globalRank.map(mostrarRanks)
-                                                }
-                                            </tbody>
-                                        </table>
+                            <>
+                                <div className='row'>
+                                    <div className='col-12'>
+                                        <div className='table-responsive rounded mt-3'>
+                                            <table className="table table-dark table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">POS</th>
+                                                        <th scope="col">FLAG</th>
+                                                        <th scope="col">NAME</th>
+                                                        <th scope="col">TOTAL LAPS</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {
+                                                        globalRank.map(mostrarRanks)
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </>
                         ) : (
                             <div className='row'>
                                 <div className='col-12'>
@@ -112,6 +128,13 @@ const BestPlayersPage = () => {
                         )
                     )
                 }
+                <div className="row">
+                    <div className="col-sm-5"></div>
+                    <div className="col-sm-2 text-center">
+                        <button className="btn btn-outline-secondary w-100" disabled={esLaUltimaPagina} type="button" id="inputGroupFileAddon03" onClick={() => setNumberPage(prevNumberPage => prevNumberPage + 1)}>Load more</button>
+                    </div>
+                    <div className="col-sm-5"></div>
+                </div>
             </div>
         </Sidebar>
     )

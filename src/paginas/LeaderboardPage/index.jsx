@@ -19,20 +19,25 @@ import {convertidorTiempoVuelta} from '../../helpers/convertidorTiempoVuelta';
 
 const LeaderboardPage = () => {
 
+    //  CONTEXT
     const {circuitos, haRecibidoCircuitos, coches, haRecibidoCoches} = useStateContext();
 
+    //  USE STATE
     const [imagenCircuito, setImagenCircuito] = useState(imagenes_circuitos["Spa"].outline);
-
     const [payloadCombination, setPayloadCombination] = useState(
         {
             coche_id : 113,
             circuito_id : 34
         }
     );
+    const [numberPage, setNumberPage] = useState(1);
+    const [esLaUltimaPagina, setEsLaUltimaPagina] = useState(false);
 
+    //  HOOCKS
+    const {combination, haRecibidoCombination, meta} = UseCombination(payloadCombination,numberPage);
+
+    //  NAVIGATE
     const navigate = useNavigate();
-
-    const {combination, haRecibidoCombination} = UseCombination(payloadCombination);
 
 
     /**
@@ -91,10 +96,10 @@ const LeaderboardPage = () => {
                 </td>
             </tr>
         ) : (
-            <tr className={styleToAply} key={`${combination.coche_id}-${combination.circuito_id}-${combination.id}`} role="button" tabIndex="0" value={combination.id} onClick={navigateToSesionSelected}>
+            <tr className={styleToAply} key={`${combination.coche_id}-${combination.circuito_id}-${combination.id}`} role="button" tabIndex="0" value={combination.sesion_id} onClick={navigateToSesionSelected}>
                 <td>{index+1}</td>
                 <td>{combination.user.name}</td>
-                <td>{convertidorTiempoVuelta(combination.vueltas[combination.numero_mejor_vuelta-1].tiempo_vuelta)}</td>
+                <td>{convertidorTiempoVuelta(combination.tiempo_vuelta)}</td>
             </tr>
         )
     }
@@ -127,14 +132,12 @@ const LeaderboardPage = () => {
     }
 
     useEffect(()=>{
-        if(haRecibidoCombination){
-            if(combination.length > 1){
-                combination.sort((combinacion, nextCombination)=>{
-                    return combinacion.vueltas[combinacion.numero_mejor_vuelta-1].tiempo_vuelta - nextCombination.vueltas[nextCombination.numero_mejor_vuelta-1].tiempo_vuelta;
-                });
+        if(JSON.stringify(meta) !== "{}"){
+            if(meta.current_page === meta.last_page){
+                setEsLaUltimaPagina(true);
             }
         }
-    },[haRecibidoCombination])
+    },[meta])
 
     return (
 
@@ -261,6 +264,14 @@ const LeaderboardPage = () => {
                                 </div>
                             )
                         }
+
+                        <div className='row'>
+                            <div className='col-sm-5'></div>
+                            <div className='col-sm-2'>
+                                <button className="btn btn-outline-secondary w-100" disabled={esLaUltimaPagina} type="button" id="inputGroupFileAddon03" onClick={() => setNumberPage(prevNumberPage => prevNumberPage + 1)}>Load more</button>
+                            </div>
+                            <div className='col-sm-5'></div>
+                        </div>
 
                     </div>
 

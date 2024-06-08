@@ -254,7 +254,7 @@ const AnalyzeSesionPage = () => {
 
                                                 <div className='col-6 col-lg-6 ps-4 pt-3'>
 
-                                                    <h3>{user.name}</h3>
+                                                    <h3>{sesionSeleccionada.user.name}</h3>
                                                     <h3>Sesion {session_id}</h3>
                                                     <h3>{convertidorTiempoVuelta(bestLap.tiempo_vuelta)}</h3>
 

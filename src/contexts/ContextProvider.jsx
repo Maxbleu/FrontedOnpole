@@ -9,10 +9,8 @@ import UseUser from "../hooks/useUser";
 
 const StateContext = createContext({
     token: null,
-    idioma: null,
 
     setToken: () => {},
-    setIdioma: () => {},
 });
 
 export const ContextProvider = ({children}) => {
