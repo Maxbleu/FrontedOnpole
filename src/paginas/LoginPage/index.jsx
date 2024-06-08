@@ -1,5 +1,5 @@
 //  DEPENDENCIAS
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //  IMAGEN
@@ -7,13 +7,9 @@ import LogoOnpole from '../../../public/images/logoOnpole.png';
 
 //  SERVICES
 import postLogin from '../../services/postLogin';
-import getCsrfToken from '../../services/getCsrfgToken';
 
 //  CONTEXT
 import { useStateContext } from '../../contexts/ContextProvider';
-
-//  COMPONENTES
-import AjaxLoader from '../../componentes/AjaxLoader';
 
 const LoginPage = () => {
 
@@ -28,7 +24,7 @@ const LoginPage = () => {
     const passwordRef = useRef();
 
     //  CONTEXT
-    const {setToken, setUser, csrfToken, setCsrfToken} = useStateContext();
+    const {setToken, setUser} = useStateContext();
 
     //  USE STATES
     const [errorMessage, setErrorMessage] = useState("");
@@ -62,17 +58,6 @@ const LoginPage = () => {
         });
     };
 
-    /**
-     * Este hoock se ejecuta únicamente
-     * en el primer renderizado del
-     * compronente
-     */
-    useEffect(()=>{
-        getCsrfToken().then((csrfToken)=>{
-            setCsrfToken(csrfToken);
-        })
-    },[])
-
     return (
         <div className='row mt-auto mb-auto me-0' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '90vh' }}>
             <div className='col-12'>
@@ -99,8 +84,6 @@ const LoginPage = () => {
                 }
 
                 <form onSubmit={handleLogin}>
-
-                    <input type="hidden" name="_token" value={csrfToken} />
 
                     <div className={`row margenes-landing ${errorMessage === "" ? "mt-4" : "" }`}>
                         <div className='col-md-2 col-lg-4'></div>

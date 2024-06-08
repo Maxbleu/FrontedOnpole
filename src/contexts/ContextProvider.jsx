@@ -6,6 +6,7 @@ import UseMarcas from "./../hooks/useMarcas";
 import UseCircuitos from './../hooks/useCircutos';
 import UseCoches from './../hooks/useCoches';
 import UseUser from "../hooks/useUser";
+import UseCsrfToken from "../hooks/useCsrfToken";
 
 const StateContext = createContext({
     token: null,
@@ -22,7 +23,7 @@ export const ContextProvider = ({children}) => {
     const {coches, haRecibidoCoches} = UseCoches();
     const {circuitos, haRecibidoCircuitos} = UseCircuitos();
 
-    const [csrfToken, _setCsrfToken] = useState(localStorage.getItem("CSRF_TOKEN"));
+    const {obtenerCsrfToken} = UseCsrfToken();
     const [token, _setToken] = useState(localStorage.getItem("ACCESS_TOKEN"));
     const {user, haRecibidoUser, setUser, setUserHaSidoModificado, userHaSidoModificado} = UseUser(token);
 
@@ -30,15 +31,6 @@ export const ContextProvider = ({children}) => {
     const [vueltaSeleccionada, setVueltaSeleccionada] = useState({});
     const [imagenCircuitoSesion, setImagenCircuitoSesion] = useState("");
     const [imagenCocheSesion, setImagenCocheSesion] = useState("");
-
-    const setCsrfToken = (csrfToken) =>{
-        _setCsrfToken(csrfToken);
-        if(csrfToken){
-            localStorage.setItem("CSRF_TOKEN", csrfToken);
-        }else{
-            localStorage.removeItem("CSRF_TOKEN");
-        }
-    }
 
     const setToken = (token) => {
         _setToken(token)
@@ -48,6 +40,15 @@ export const ContextProvider = ({children}) => {
             localStorage.removeItem("ACCESS_TOKEN");
         }
     }
+
+    /**
+     * Este hoock se ejecuta
+     * cuando el componente es 
+     * renderizado por primera vez
+     */
+    useEffect(()=>{
+        obtenerCsrfToken();
+    },[])
 
     return (
         <StateContext.Provider value={{
@@ -80,9 +81,6 @@ export const ContextProvider = ({children}) => {
 
             imagenCocheSesion,
             setImagenCocheSesion,
-
-            csrfToken,
-            setCsrfToken,
         }}>
             {children}
         </StateContext.Provider>
