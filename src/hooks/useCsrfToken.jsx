@@ -31,8 +31,6 @@ const UseCsrfToken = () => {
         getCsrfToken().then((csrfToken)=>{
             //  Guardamos el csrf token
             setCsrfToken(csrfToken);
-            //  Indicamos que hemos recibido el csrf token
-            setHaRecibidoCsrfToken(true);
         })
     }
 
