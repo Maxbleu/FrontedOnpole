@@ -9,7 +9,7 @@ export default function getUser(){
 
     return axiosClient.get(`/user`)
         .then(({data}) => {
-            return data;
+            return data.data;
         });
 
 }

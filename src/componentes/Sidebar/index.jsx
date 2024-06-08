@@ -107,11 +107,6 @@ const Sidebar = ({children }) => {
                             <i className="bi bi-files ps-3 pe-3"></i>
                         </Link>
                     </li>
-                    <li className="nav-item mb-1">
-                        <Link to="/combinations" className="" value={6}>
-                            <i className="bi bi-car-front ps-3 pe-3"></i>
-                        </Link>
-                    </li>
                 </ul>
                 <hr className='mt-auto' />
                 <div className="d-flex">

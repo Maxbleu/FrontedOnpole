@@ -18,7 +18,6 @@ import SessionsPage from './paginas/SessionsPage';
 import SettingsPage from './paginas/SettingsPage';
 import ProfilePage from './paginas/ProfilePage';
 import BestPlayersPage from './paginas/BestPlayersPage';
-import CombinationsPage from './paginas/CombinationsPage';
 
 //  COMPONENTES
 import RequireAuth from './componentes/RequireAuth';
@@ -66,12 +65,6 @@ function App() {
                     <Route path="/bestplayers" element={
                         <RequireAuth>
                             <BestPlayersPage />
-                        </RequireAuth>
-                    } />
-
-                    <Route path="/combinations" element={
-                        <RequireAuth>
-                            <CombinationsPage />
                         </RequireAuth>
                     } />
 
