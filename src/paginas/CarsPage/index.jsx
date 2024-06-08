@@ -19,17 +19,17 @@ import { useStateContext } from '../../contexts/ContextProvider';
 
 const CarsPage = () => {
 
-    //  VALORES POR DEFECTO DE LOS INPUTS
+    //  CONTANST
     const COCHEBUSCADOPORDEFECTO = "";
     const CATEGORIAPORDEFECTO = categorias_coches[0].value;
+    const nombreMarcaSeleccionada = (useParams("marca")).marca;
 
-    //  STATES
+    //  USE STATES
     const [cocheBuscado, setCocheBuscado] = useState(COCHEBUSCADOPORDEFECTO);
     const [categoriaBuscada, setCategoriaBuscada] = useState(CATEGORIAPORDEFECTO);
 
+    //  CONTEXT
     const {marcas, haRecibidoMarcas} = useStateContext();
-
-    const nombreMarcaSeleccionada = (useParams("marca")).marca;
 
     let marca;
 

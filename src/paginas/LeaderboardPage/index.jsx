@@ -131,9 +131,20 @@ const LeaderboardPage = () => {
         setPayloadCombination(payloadCombination => ({...payloadCombination, coche_id: cocheSeleccionado.id}));
     }
 
+    /**
+     * Este hoock se ejecuta en el primer
+     * renderizado del componente y cuando
+     * es actualizado el objeto meta
+     */
     useEffect(()=>{
+        //  Comprobamos si el objeto meta está vacio
         if(JSON.stringify(meta) !== "{}"){
+            //  Comprobamos si ha llegado a la última
+            //  pagina para evitar que el usuario
+            //  haga más peticiones
             if(meta.current_page === meta.last_page){
+                //  Indicamos que hemos llegado a la
+                //  última pagina
                 setEsLaUltimaPagina(true);
             }
         }

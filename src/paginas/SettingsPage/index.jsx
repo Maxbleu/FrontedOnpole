@@ -15,10 +15,13 @@ import putUser from '../../services/putUser';
 
 const SettingsPage = () => {
 
+    //  CONTEXTS
     const {user, setToken, setUser, setUserHaSidoModificado, userHaSidoModificado, setCsrfToken} = useStateContext();
 
+    //  NAVEGADOR
     const navigate = useNavigate();
 
+    //  USE STATES
     const [isDisabledInputsSecurity, setIsDisabledInputsSecurity] = useState(true);
     const [isDisabledInputsAccount, setIsDisabledInputsAccount] = useState(true);
 
@@ -26,12 +29,13 @@ const SettingsPage = () => {
     const [mensageSecurityContraseñasNoCoinciden, setMensageSecurityContraseñasNoCoinciden] = useState("");
     const [mensageSecurityContraseñasActualizadas, setMensageSecurityContraseñasActualizadas] = useState("");
 
+    //  USE REFS
     const userNameRef = useRef();
     const emailRef = useRef();
-
     const newPasswordRef = useRef();
     const confirmNewPasswordRef = useRef();
 
+    //  CONTANST
     const ESTILOS_INPUTS_ACCOUNT = {
         borderColor : isDisabledInputsAccount ? '#999999' : '#40be44'
     };
@@ -119,6 +123,12 @@ const SettingsPage = () => {
         navigate("/");
     }
 
+    /**
+     * Este hoock se ejecuta solo
+     * en el primer renderizado del
+     * componente padre y cuando
+     * userHaSidoModificado sea true
+     */
     useEffect(()=>{
         setUserHaSidoModificado(false);
     },[userHaSidoModificado])

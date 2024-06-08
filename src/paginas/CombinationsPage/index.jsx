@@ -12,8 +12,10 @@ const CombinationsPage = () => {
 
     //  CONSTANTS
     const COMBINACIONES_POR_PAGINA = 4;
+    const listaCircuitos = Object.keys(imagenes_circuitos);
+    const listaMarcas = Object.keys(imagenes_coches);
 
-    //  USESTATES
+    //  USE STATES
     const [paginaActual, setPaginaActual] = useState(1);
 
     const [imagenCoche, setImagenCoche] = useState("");
@@ -22,15 +24,12 @@ const CombinationsPage = () => {
     const [imagenesCircuito, setImagenCircuito] = useState("");
     const [nombreCircuito, setNombreCircuito] = useState("");
 
-    //  LISTAS
-    const listaCircuitos = Object.keys(imagenes_circuitos);
-    const listaMarcas = Object.keys(imagenes_coches);
-
     const [listaCombinacionesGeneradas, setListaCombinacionesGeneradas] = useState([]);
     const [listaCombinacionesPagina, setListaCombinacionesPagina] = useState([]);
 
     let paginas = [];
 
+    //  Comprobamos si hay combinaciones en la lista
     if (listaCombinacionesGeneradas.length > 0) {
         let division = Math.ceil(listaCombinacionesGeneradas.length / COMBINACIONES_POR_PAGINA);
         paginas = Array.from({ length: division }, (_, index) => index + 1);
@@ -144,11 +143,21 @@ const CombinationsPage = () => {
         setListaCombinacionesPagina(listaCombinacionesGeneradas.slice(inicio, fin));
     }
 
+    /**
+     * Este hoock se ejecuta en
+     * el primer renderizado del
+     * componente
+     */
     useEffect(()=>{
         let evento = new Event('build');
         generarCombinacionRandom(evento);
     },[])
 
+    /**
+     * Este hoock se ejecuta
+     * cuando se modificado la listaCombinacionesGeneradas
+     * y cuando el usuario cambia de pagina
+     */
     useEffect(() => {
         cambiarPagina(paginaActual);
     }, [listaCombinacionesGeneradas, paginaActual]);

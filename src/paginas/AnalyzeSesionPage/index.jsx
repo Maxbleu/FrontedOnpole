@@ -23,12 +23,15 @@ import obtenerImagenCoche from './../../helpers/proveedorImagenes';
 
 const AnalyzeSesionPage = () => {
 
-    const {user, sesionSeleccionada, setSesionSeleccionada, setVueltaSeleccionada, imagenCircuitoSesion, setImagenCircuitoSesion, imagenCocheSesion, setImagenCocheSesion} = useStateContext();
+    //  CONSTEXTS
+    const {sesionSeleccionada, setSesionSeleccionada, setVueltaSeleccionada, imagenCircuitoSesion, setImagenCircuitoSesion, imagenCocheSesion, setImagenCocheSesion} = useStateContext();
 
+    //  CONTANTS
     const session_id = (useParams("session_id")).session_id;
+
+    //  USE STATES
     const [haRecibidoSesion, setHaRecibidoSesion] = useState(false);
     const [elComponenteEstaListo, setElComponenteEstaListo] = useState(false);
-
     //  LAPS
     const [vueltas, setVueltas] = useState([]);
     const [bestLap, setBestLap] = useState({});
@@ -42,6 +45,7 @@ const AnalyzeSesionPage = () => {
     );
     const [listLapTimesSesion, setListLapTimesSesion] = useState([]);
 
+    //  NAVEGACIÓN
     const navigate = useNavigate();
 
     /**

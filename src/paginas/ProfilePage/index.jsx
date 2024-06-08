@@ -18,14 +18,19 @@ import obtenerImagenCoche from '../../helpers/proveedorImagenes';
 
 const ProfilePage = () => {
 
+    //  CONTEXT
     const {user} = useStateContext();
+
+    //  USE STATES
     const [fechaMember, setFechaMember] = useState("");
     const [acronimoToUpperCase, setAcronimoToUpperCase] = useState("");
     const [imagenCocheUltimaSesion, setImagenCocheUltimaSesion] = useState("");
 
+    //  HOOCKS
     const {estadisticas, haRebicibidoUserEstadisticas} = UseUserEstadisticas(user.id);
     const {latestSesion, haRecibidoLaUltimaSesionUsuario} = UseLatestUserSesion(user.id);
 
+    //  NAVEGADOR
     const navigate = useNavigate();
 
     /**
@@ -38,17 +43,34 @@ const ProfilePage = () => {
         navigate("settings");
     }
 
+    /**
+     * Este método se ejecuta cuando 
+     * haRecibidoLaUltimaSesionUsuario es true
+     * y en el primer renderizado del componente
+     */
     useEffect(()=>{
+        //  Comprobar que es la última sesion no 
+        //  está vacia
         if(JSON.stringify(latestSesion) !== "{}"){
+            //  Obtenemos la ruta de la imagen del coche de la sesión
             setImagenCocheUltimaSesion(obtenerImagenCoche(latestSesion));
         }
     },[haRecibidoLaUltimaSesionUsuario])
 
+    /**
+     * Este hoock se ejecuta cuando 
+     * ha recibido user y en el primer
+     * renderizado del componente
+     */
     useEffect(()=>{
+        //  Comprobamos si el usuario no esta vacio
         if(JSON.stringify(user) !== "{}"){
+            //  Obtenemos la fecha de creación del usuario
             let fecha = user.created_at.split("T")[0];
             let fechaSplited = fecha.split("-");
+            //  Guardamos la fecha de creación del usuario
             setFechaMember(`${fechaSplited[2]}/${fechaSplited[1]}/${fechaSplited[0]}`);
+            //  Insertamos el acronimo del usuario
             setAcronimoToUpperCase(user.acronimo.toUpperCase());
         }
     },[user])

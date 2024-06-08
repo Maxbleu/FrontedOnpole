@@ -14,15 +14,19 @@ import UsePostSesion from '../../hooks/usePostSesion';
 
 const AnalyzePage = () => {
 
+    //  NAVEGACION
     const navigate = useNavigate();
 
+    //  CONTEXTS
     const {setSesionSeleccionada, coches, haRecibidoCoches, circuitos, haRecibidoCircuitos, user} = useStateContext();
 
+    //  USE STATES
     const [isIncorrectTypeFile, setIncorrectTypeFile] = useState(false);
     const [isOnePlayerSesion, setIsOnePlayerSesion] = useState(true);
     const [errorMensage, setErrorMensage] = useState("");
     const [payloadSesion, setPayloadSesion] = useState({});
 
+    //  HOOCKS
     const { haRecibidoSesionId, idSesionCreada } = UsePostSesion(payloadSesion);
 
     /**
@@ -185,7 +189,13 @@ const AnalyzePage = () => {
         event.target.files = null;
     }
 
+    /**
+     * Este hoock se ejecutará cuando la
+     * haRecibidoSesionId es true y en la
+     * primera renderización del componente
+     */
     useEffect(() => {
+        //  Comprobamos si haRecibidoSesionId es true
         if(haRecibidoSesionId){
 
             //  Guardamos el id de la sesion para hacer las
@@ -193,7 +203,7 @@ const AnalyzePage = () => {
             setSesionSeleccionada(idSesionCreada);
 
             //  Navegamos a la pagina de sesions
-            navigate(`/sessions/${idSesionCreada}`)
+            navigate(`/sessions/${idSesionCreada}`);
 
         }
     }, [haRecibidoSesionId])

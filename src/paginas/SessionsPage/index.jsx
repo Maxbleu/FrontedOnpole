@@ -16,10 +16,13 @@ import {convertidorTiempoVuelta} from '../../helpers/convertidorTiempoVuelta';
 
 const SessionsPage = () => {
 
+    //  CONTEXT
     const {user} = useStateContext();
 
+    //  HOOCKS
     const {userSesions, haRecibidoUserSesion} = UseUserSesion(user.id);
 
+    //  NAVEGADOR
     const navigate = useNavigate();
 
     /**

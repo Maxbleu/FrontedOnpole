@@ -16,9 +16,10 @@ import usePaises from './../../hooks/usePaises';
 
 const SignUpPage = () => {
 
+    //  CONTANST
     const CodeValidationError = 422;
 
-    //  REFS
+    //  USE REFS
     const nameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -33,7 +34,7 @@ const SignUpPage = () => {
     //  HOOCKS
     const {paises, haRecibidoPaises} = usePaises("es");
 
-    //  errorMessage
+    //  USE STATES
     const [errorMessage, setErrorMessage] = useState("");
     const [paisSeleccionado, setPaisSeleccionado] = useState({
         nombre : "Andorra",

@@ -27,14 +27,17 @@ import { convertidorTiempoVuelta } from '../../helpers/convertidorTiempoVuelta';
 
 const DashboardPage = () => {
 
+    //  CONTEXT
     const {user, haRecibidoUser} = useStateContext();
 
+    //  HOOCKS
     const {vueltasAnalizadasAlMesPorUser,haRecibidoVueltasAnalizadasAlMesPorUser} = UseAnalyzedLapsMonthyUser(user.id);
     const {estadisticas, haRebicibidoUserEstadisticas} = UseUserEstadisticas(user.id);
     const {latestSesion, haRecibidoLaUltimaSesionUsuario} = UseLatestUserSesion(user.id);
     const {globalRank, haRecibidoGlobalRank} = UseGlobalRank();
 
-    const [listRank, setListRank] = useState([]);
+    //  USE STATES
+    const [listRankDashboard, setListRankDashboard] = useState([]);
     const [imagenCocheUltimaSesion, setImagenCocheUltimaSesion] = useState("");
 
 
@@ -72,43 +75,70 @@ const DashboardPage = () => {
         return citasPilotos[Math.floor(Math.random() * citasPilotos.length)];
     }
 
+    /**
+     * Este hoock se ejecuta cuando recibe la última
+     * sesión analizada del usuario
+     */
     useEffect(()=>{
+        //  Comprueba si ha recibido la última sesión
+        //  del usuario y si la última sesión no está
+        //  vacia 
         if(haRecibidoLaUltimaSesionUsuario && JSON.stringify(latestSesion) !== "{}"){
+            //  Obtenemos la imagen del coche de la sesión
             setImagenCocheUltimaSesion(obtenerImagenCoche(latestSesion));
         }
     },[haRecibidoLaUltimaSesionUsuario])
 
+    /**
+     * Este hoock se ejecuta cuando haRecibidoGlobalRank
+     * es true y que el usuario no este vacio.
+     */
     useEffect(()=>{
 
+        //  Comprobamos que ha recibido el ranking de jugadores
+        //  y que el usuario no esta vacio
         if(haRecibidoGlobalRank && JSON.stringify(user) !== "{}"){
 
+            //  Comprobamos que el ranking global tiene más 
+            //  de dos posiciones ya que, en el ranking del dashboard
+            //  solo ponemos los dos primeros y la posición del usuario
             if(globalRank.length > 2){
 
+                //  Obtenemos las dos primeras posiciones
                 let firstRanks = globalRank.slice(0,2);
 
+                //  Obtenemos la posicion del usuario en el leaderboard
                 let yourRank = globalRank.find((rank)=>{
                     return rank.user.id === user.id;
                 });
 
+                //  Comprobamos si el usuario esta en las
+                //  dos primeras posiciones
                 if(firstRanks.some((rank)=>{
                     return rank.user.id === user.id
                 })){
 
+                    //  Y si lo está obtenemos el
+                    //  tercer posicionado en el ranking global
                     firstRanks.push(globalRank[firstRanks.length])
 
                 }else{
+                    //  Si no lo está insertamos el rank del
+                    //  usuario en la lista de los dos primeros
+                    //  puestos
                     firstRanks.push(yourRank);
                 }
 
-                setListRank(firstRanks);
+                //  Guardamos la lista de ranks del dashboard
+                setListRankDashboard(firstRanks);
 
             }else{
 
-                setListRank(globalRank);
+                //  Insertamos la lista del ranking global
+                //  en la lista a mostrar en el dashboard
+                setListRankDashboard(globalRank);
 
             }
-
-
 
         }
 
@@ -203,7 +233,7 @@ const DashboardPage = () => {
                                                                 <AjaxLoader></AjaxLoader>
                                                             ) :
                                                             (
-                                                                listRank.map(mostrarRanks)
+                                                                listRankDashboard.map(mostrarRanks)
                                                             )
                                                         }
                                                     </>
@@ -352,7 +382,7 @@ const DashboardPage = () => {
                                                                         <AjaxLoader></AjaxLoader>
                                                                     ) :
                                                                     (
-                                                                        listRank.map(mostrarRanks)
+                                                                        listRankDashboard.map(mostrarRanks)
                                                                     )
                                                                 }
                                                             </>

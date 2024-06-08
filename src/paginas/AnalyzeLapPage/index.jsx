@@ -100,9 +100,14 @@ const AnalyzeLapPage = () => {
 
         }else{
 
+            //  En caso de que tengamos una vuelta seleccionada
+            //  con la variable del numero de vuelta de la sesión
+            //  la buscamos en las vueltas de la sesión seleccionada
             setVueltaSeleccionada(sesionSeleccionada.vueltas.find((vuelta)=>{
                 return vuelta.numero_vuelta_sesion === number_lap;
             }));
+
+            //  Indicamos que tenemos la sesion seleccionada
             setHaRecibidoSesionSeleccionada(true);
 
         }

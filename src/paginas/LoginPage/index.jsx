@@ -17,6 +17,7 @@ import AjaxLoader from '../../componentes/AjaxLoader';
 
 const LoginPage = () => {
 
+    //  CONTANTS
     const CodeValidationError = 422;
 
     //  NAVEGADOR
@@ -26,7 +27,7 @@ const LoginPage = () => {
     const emailRef = useRef();
     const passwordRef = useRef();
 
-    //  SETS
+    //  CONTEXT
     const {setToken, setUser, csrfToken, setCsrfToken} = useStateContext();
 
     //  USE STATES
@@ -61,6 +62,11 @@ const LoginPage = () => {
         });
     };
 
+    /**
+     * Este hoock se ejecuta únicamente
+     * en el primer renderizado del
+     * compronente
+     */
     useEffect(()=>{
         getCsrfToken().then((csrfToken)=>{
             setCsrfToken(csrfToken);

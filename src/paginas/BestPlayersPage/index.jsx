@@ -4,7 +4,6 @@ import AjaxLoader from "../../componentes/AjaxLoader";
 
 //  HOOCKS
 import UseGlobalRank from '../../hooks/useGlobalRank';
-import { useEffect, useState } from "react";
 
 const BestPlayersPage = () => {
 

@@ -18,14 +18,15 @@ import { useStateContext } from "../../contexts/ContextProvider";
 
 const BrandsCarsPage = () => {
 
-    //  VALORES POR DEFECTO DE LOS INPUTS
+    //  CONSTANTS
     const PAISPORDEFECTO = paises_marcas[0].value;
     const TEXTOPORDEFECTO = "";
 
-    //  STATES
+    //  USE STATES
     const [paisBuscado, setPaisBuscado] = useState(PAISPORDEFECTO);
     const [marcaBuscada, setMarcaBuscada] = useState(TEXTOPORDEFECTO);
 
+    //  CONTEXT
     const {marcas, haRecibidoMarcas} = useStateContext();
 
     //  LISTA DE MARCAS FILTRADA
