@@ -53,7 +53,8 @@ const AnalyzeLapPage = () => {
                 stroke="none"
                 fill="#8884d8"
                 values={index}
-                style={{ cursor: 'pointer' }}
+                role="button" 
+                tabIndex="0"
             />
         );
     };
@@ -113,6 +114,11 @@ const AnalyzeLapPage = () => {
         }
     },[])
 
+    /**
+     * Este hoock se ejecutará en el primer renderizado
+     * del componente sesionSeleccionda y cuando 
+     * haRecibidoSesionSeleccionada  
+     */
     useEffect(()=>{
         if(haRecibidoSesionSeleccionada){
 

@@ -50,7 +50,7 @@ const DashboardPage = () => {
      */
     function mostrarRanks(rank, index){
         let isYourUser = rank.user.id === user.id ? "yourProfile"  : "";
-        return <div key={rank.user.name+index} className={'row ' + isYourUser}>
+        return <div key={rank.user.name+index} className={'row ' + isYourUser} style={{height:'6.3vh'}}>
                     <hr />
                     <div className='col-3 mt-md-2 mb-md-2'>
                         <span>{rank.posicion}</span>
@@ -153,7 +153,7 @@ const DashboardPage = () => {
                 ) : (
                     <div className='row'>
                         <div className='col-12'>
-                            <div className='row d-none d-md-flex paginaDashBoard p-4'>
+                            <div className='row d-none d-md-flex paginaDashBoard p-4' style={{marginTop: '6vh'}}>
                                 <div className='col-12'>
                                     <div className='row row-cols-3 gx-5'>
                                         <div className='col-3'>
@@ -172,7 +172,7 @@ const DashboardPage = () => {
                                         <div className='col-6'>
                                             <div className='row border rounded text-decoration-none text-white'>
                                                 <div className='col-12'>
-                                                    <div className='row combinacionesDashBoard' style={{height: '40vh'}}>
+                                                    <div className='row combinacionesDashBoard'>
                                                         <div className='col-12' style={{marginTop: '20vh'}}>
                                                             <h3 className='p-5'>Enjoy the views while driving</h3>
                                                         </div>
@@ -192,7 +192,7 @@ const DashboardPage = () => {
                                                             </div>
                                                             <div className='row'>
                                                                 <div className='col-12 text-end'>
-                                                                    <span className='mejorPosicionClasificada'>{estadisticas.number_lap_record}</span>
+                                                                    <span className='lap_records'>{estadisticas.number_lap_record}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -220,7 +220,7 @@ const DashboardPage = () => {
                                     </div>
                                     <div className='row row-cols-3 gx-5'>
                                         <div className='col-3'>
-                                            <Link to="/bestplayers" className='row mt-3 fondoHoverDefaultPrimary border rounded text-decoration-none text-white padding_bottom_Leaderboard'>
+                                            <Link to="/bestplayers" className='row mt-3 fondoHoverDefaultPrimary border rounded text-decoration-none text-white' style={{height: '24.5vh'}}>
                                                 <div className='col-12'>
                                                     <div className='row text-center text-md-start p-2'>
                                                         <div className='col-12'>
@@ -276,7 +276,7 @@ const DashboardPage = () => {
                                         <div className='col-3'>
                                             {
                                                 JSON.stringify(latestSesion) === "{}" ? (
-                                                    <div className='row marginTopLeaderboard border rounded p-4 text-center'>
+                                                    <div className='row mt-3 border rounded p-4 text-center' style={{height: '24.5vh'}}>
                                                         <div className='col-12'>
                                                             <div className='row'>
                                                                 <h4>No sessions analyzed by the user.</h4>
@@ -362,7 +362,7 @@ const DashboardPage = () => {
                                                             </div>
                                                             <div className='row'>
                                                                 <div className='col-12 text-end'>
-                                                                    <span className='mejorPosicionClasificada'>{estadisticas.number_lap_record}</span>
+                                                                    <span className='lap_records'>{estadisticas.number_lap_record}</span>
                                                                 </div>
                                                             </div>
                                                         </div>

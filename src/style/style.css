@@ -578,7 +578,7 @@ textarea {
   background-color: #DA1832;
 }
 
-.mejorPosicionClasificada {
+.lap_records {
   font-size: 80px;
 }
 
@@ -612,10 +612,6 @@ textarea {
 
 .fondoHoverDefaultPrimary:hover {
   background-color: #4C446B;
-}
-
-.padding_bottom_Leaderboard {
-  padding-bottom: 70px;
 }
 
 .offcanvas {

@@ -85,7 +85,8 @@ const AnalyzeSesionPage = () => {
                 fill="#8884d8"
                 values={index}
                 onClick={navigateToLapSelected}
-                style={{ cursor: 'pointer' }}
+                role="button" 
+                tabIndex="0"
             />
         );
     };
