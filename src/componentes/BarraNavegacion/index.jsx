@@ -27,9 +27,6 @@ const BarraNavegacion = () => {
                     <li className="nav-item">
                         <Link className="nav-link text-decoration-none" to="/brandscars">Cars</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link text-decoration-none" to="/contactus">Contact us</Link>
-                    </li>
 
                 </ul>
 

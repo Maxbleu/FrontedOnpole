@@ -38,7 +38,7 @@ const SignUpPage = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [paisSeleccionado, setPaisSeleccionado] = useState({
         nombre : "Andorra",
-        valor : "an"
+        valor : "ad"
     });
 
     /**

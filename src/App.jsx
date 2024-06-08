@@ -6,7 +6,6 @@ import HomePage from './paginas/HomePage';
 import AboutPage from './paginas/AboutPage';
 import BrandsCarsPage from './paginas/BrandsCarsPage';
 import CarsPage from './paginas/CarsPage';
-import ContactUSPage from './paginas/ContactUsPage';
 import LoginPage from './paginas/LoginPage';
 import SignUpPage from './paginas/SignUpPage';
 import DashboardPage from './paginas/DashboardPage';
@@ -39,8 +38,6 @@ function App() {
                     <Route path='/about' element={<AboutPage />} />
                     <Route path='/brandscars' element={<BrandsCarsPage />} />
                     <Route path='/brandscars/:marca/' element={<CarsPage />} />
-                    <Route path='/contactus' element={<ContactUSPage />} />
-
                     <Route path='/login' element={<LoginPage />} />
                     <Route path='/signup' element={<SignUpPage />} />
 
