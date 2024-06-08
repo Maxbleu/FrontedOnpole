@@ -276,7 +276,7 @@ const DashboardPage = () => {
                                         <div className='col-3'>
                                             {
                                                 JSON.stringify(latestSesion) === "{}" ? (
-                                                    <div className='row mt-3 border rounded p-4 text-center' style={{height: '24.5vh'}}>
+                                                    <div className='row mt-3 border rounded p-4 align-items-center text-center' style={{height: '24.5vh'}}>
                                                         <div className='col-12'>
                                                             <div className='row'>
                                                                 <h4>No sessions analyzed by the user.</h4>
