@@ -50,8 +50,7 @@ const DashboardPage = () => {
      */
     function mostrarRanks(rank, index){
         let isYourUser = rank.user.id === user.id ? "yourProfile"  : "";
-        return <div key={rank.user.name+index} className={'row ' + isYourUser} style={{height:'6.3vh'}}>
-                    <hr />
+        return <div key={rank.user.name+index} className={'row align-items-center ' + isYourUser} style={{height:'6.3vh'}}>
                     <div className='col-3 mt-md-2 mb-md-2'>
                         <span>{rank.posicion}</span>
                     </div>
@@ -222,10 +221,11 @@ const DashboardPage = () => {
                                         <div className='col-3'>
                                             <Link to="/bestplayers" className='row mt-3 fondoHoverDefaultPrimary border rounded text-decoration-none text-white' style={{height: '24.5vh'}}>
                                                 <div className='col-12'>
-                                                    <div className='row text-center text-md-start p-2'>
+                                                    <div className='row text-center text-md-start'>
                                                         <div className='col-12'>
-                                                            <h5>Glogal Rank</h5>
+                                                            <h5 className='p-2'>Glogal Rank</h5>
                                                         </div>
+                                                        <hr />
                                                     </div>
                                                     <>
                                                         {
@@ -292,7 +292,7 @@ const DashboardPage = () => {
                                                                 </div>
                                                                 <hr />
                                                             </div>
-                                                            <Link to={`/sessions/${latestSesion.id}`} className='row mb-4 mt-3 text-decoration-none text-white'>
+                                                            <Link to={`/sessions/${latestSesion.id}`} className='row mb-3 mt-3 text-decoration-none text-white'>
                                                                 <div className='col-6'>
                                                                     <div className='row'>
                                                                         <div className='col-12'>
