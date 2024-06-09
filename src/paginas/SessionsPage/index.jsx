@@ -32,7 +32,7 @@ const SessionsPage = () => {
      * @param {Event} event
      */
     function navigateToSesionSelected(event){
-        navigate(`/sessions/${event.detail}`);
+        navigate(`/sessions/${event.currentTarget.attributes[0].nodeValue}`);
     }
 
     /**
@@ -43,7 +43,7 @@ const SessionsPage = () => {
      * @returns {tr}
      */
     function mostrarSesiones(sesion, index){
-        return <tr role="button" tabIndex="0" key={sesion.id+index} onClick={navigateToSesionSelected} value={sesion.id}>
+        return <tr value={sesion.id} role="button" tabIndex="0" key={sesion.id+index} onClick={navigateToSesionSelected}>
                     <td>{sesion.fecha}</td>
                     <td>{sesion.circuito.nombre}</td>
                     <td>{sesion.coche.nombre}</td>
