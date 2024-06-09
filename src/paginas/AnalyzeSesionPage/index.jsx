@@ -387,10 +387,10 @@ const AnalyzeSesionPage = () => {
 
                                             <div className='row'>
 
-                                                <ResponsiveContainer width="100%" maxHeight={150} aspect={3}>
+                                                <ResponsiveContainer width="100%" maxHeight={90} aspect={3}>
                                                     <LineChart
                                                         width={500}
-                                                        height={300}
+                                                        height={150}
                                                         data={listLapTimesSesion}
                                                         margin={{
                                                         right: 50,
