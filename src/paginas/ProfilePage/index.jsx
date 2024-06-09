@@ -123,7 +123,7 @@ const ProfilePage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='row m-sm-3 pt-5'>
+                    <div className='row m-sm-3 pt-3'>
                         <div className='col-sm-12'>
                             <div className='row'>
                                 <div className='col-12'>
@@ -170,7 +170,7 @@ const ProfilePage = () => {
                             }
                         </div>
                     </div>
-                    <div className='row m-sm-3 pt-5'>
+                    <div className='row m-sm-3 pt-3'>
                         <div className='col-12'>
                             <div className='row'>
                                 <div className='col-12'>

@@ -267,7 +267,7 @@ const AnalyzeSesionPage = () => {
 
                                                 <div className='col-6 col-lg-6'>
 
-                                                    <img className='w-100' src={imagenCocheSesion} alt="Imagen del coche de la sesion" />
+                                                    <img className='w-100 h-100' src={imagenCocheSesion} alt="Imagen del coche de la sesion" />
 
                                                 </div>
 
@@ -367,7 +367,7 @@ const AnalyzeSesionPage = () => {
 
                                     </div>
 
-                                    <div className='row'>
+                                    <div className='row' style={{height:'40vh'}}>
 
                                         <div className='col-md-12 border rounded'>
 
@@ -448,7 +448,7 @@ const AnalyzeSesionPage = () => {
 
                                 <div className='col-md-6'>
 
-                                    <div className='row'>
+                                    <div className='row' style={{height:'84vh'}}>
 
                                         <div className='col-md-12 border rounded ms-3'>
 
@@ -456,13 +456,13 @@ const AnalyzeSesionPage = () => {
 
                                                 <div className='col-md-12 text-center'>
 
-                                                    <img className='w-50 h-100 mb-3' src={imagenCircuitoSesion} alt="Imagen circuito sesion" />
+                                                    <img className='w-50 vh-50 ' src={imagenCircuitoSesion} alt="Imagen circuito sesion" />
 
                                                 </div>
 
                                             </div>
 
-                                            <div className='row'>
+                                            <div className='row mb-0'>
 
                                                 <div className='col-sm-12'>
 

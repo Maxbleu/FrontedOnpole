@@ -1,6 +1,6 @@
 //  DEPENDECIAS
 import { useEffect, useRef, useState } from 'react';
-import { resolvePath, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 //  COMPONENTES
 import Sidebar from '../../componentes/Sidebar';
@@ -145,7 +145,7 @@ const SettingsPage = () => {
                     </div>
                     <div className='row'>
                         <div className='col-12'>
-                            <div className='row mb-3'>
+                            <div className='row mb-2 mb-sm-3'>
                                 <div className='col-12 col-sm-9 col-md-10 col-lg-10'>
                                     <h3>Account</h3>
                                 </div>
@@ -157,7 +157,7 @@ const SettingsPage = () => {
                                 mensageAccount === "" ? (
                                     <></>
                                 ) : (
-                                    <div className='row mb-3'>
+                                    <div className='row mb-2 mb-sm-3'>
                                         <div className='col-12'>
                                             <div className="alert alert-primary" role="alert">
                                                 {mensageAccount}
@@ -173,7 +173,7 @@ const SettingsPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='row mb-3'>
+                            <div className='row mb-2 mb-sm-3'>
                                 <div className='col-12'>
                                     <div className="input-group flex-nowrap justify-content-center">
                                         <input ref={emailRef} type="text" className="form-control bg-transparent" style={ESTILOS_INPUTS_ACCOUNT} defaultValue={user.email} disabled={isDisabledInputsAccount} />
@@ -190,7 +190,7 @@ const SettingsPage = () => {
                     </div>
                     <div className='row'>
                         <div className='col-12'>
-                            <div className='row mt-5 mb-3'>
+                            <div className='row mt-3 mb-2 mb-sm-3'>
                                 <div className='col-12 col-sm-9 col-md-10 col-lg-10'>
                                     <h3>Security</h3>
                                 </div>
@@ -217,14 +217,14 @@ const SettingsPage = () => {
                                     </div>
                                 )
                             }
-                            <div className='row mb-3'>
+                            <div className='row mb-2'>
                                 <div className='col-12'>
                                     <div className="input-group flex-nowrap justify-content-center">
                                         <input ref={newPasswordRef} type="password" placeholder='Enter a new password' className="form-control bg-transparent" style={ESTILOS_INPUTS_SECURITY} disabled={isDisabledInputsSecurity} />
                                     </div>
                                 </div>
                             </div>
-                            <div className='row mb-3'>
+                            <div className='row mb-2'>
                                 <div className='col-12'>
                                     <div className="input-group flex-nowrap justify-content-center">
                                         <input ref={confirmNewPasswordRef} type="password" placeholder='Confirm your new password' className="form-control bg-transparent" style={ESTILOS_INPUTS_SECURITY} disabled={isDisabledInputsSecurity} />
@@ -241,7 +241,7 @@ const SettingsPage = () => {
                     </div>
                     <div className='row'>
                         <div className='col-12'>
-                            <div className='row mt-1 mb-3'>
+                            <div className='row mb-2 mb-sm-3'>
                                 <div className='col-12 col-sm-9 col-md-10 col-lg-10'>
                                     <h3>Sesion</h3>
                                 </div>

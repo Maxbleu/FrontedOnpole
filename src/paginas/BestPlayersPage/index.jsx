@@ -20,7 +20,7 @@ const BestPlayersPage = () => {
     function mostrarRanks(rank, index){
         let offCanvasId = `offcanvasRight${index}`;
         return  <>
-                    <tr key={rank.posicion+index} role="button" tabIndex="0" data-bs-toggle="offcanvas" data-bs-target={`#${offCanvasId}`} aria-controls="offcanvasRight">
+                    <tr className={index+1 === 1 ? "bestLapTimeCombination" : index+1 === 2 ? "secondBestLapTimeCombination" : "thirdBestLapTimeCombination"} key={rank.posicion+index} role="button" tabIndex="0" data-bs-toggle="offcanvas" data-bs-target={`#${offCanvasId}`} aria-controls="offcanvasRight">
                         <td>{rank.posicion}</td>
                         <td>{rank.user.pais}</td>
                         <td>{rank.user.name}</td>

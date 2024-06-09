@@ -152,7 +152,7 @@ const DashboardPage = () => {
                 ) : (
                     <div className='row'>
                         <div className='col-12'>
-                            <div className='row d-none d-md-flex paginaDashBoard p-4' style={{marginTop: '6vh'}}>
+                            <div className='row d-none d-md-flex paginaDashBoard p-4' style={{marginTop: '2vh'}}>
                                 <div className='col-12'>
                                     <div className='row row-cols-3 gx-5'>
                                         <div className='col-3'>
@@ -375,6 +375,7 @@ const DashboardPage = () => {
                                                                 <div className='col-12'>
                                                                     <h5>Glogal Rank</h5>
                                                                 </div>
+                                                                <hr />
                                                             </div>
                                                             <>
                                                                 {
@@ -395,7 +396,7 @@ const DashboardPage = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <Link className='row mt-3 border rounded bg-transparent text-decoration-none' to="/combinations">
+                                            <Link className='row mt-3 border rounded bg-transparent text-decoration-none' to="/leaderboards">
                                                 <div className='col-6'>
                                                     <h4 className='text-white'>Combinations to enjoy</h4>
                                                 </div>

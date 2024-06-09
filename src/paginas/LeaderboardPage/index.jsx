@@ -276,13 +276,19 @@ const LeaderboardPage = () => {
                             )
                         }
 
-                        <div className='row'>
-                            <div className='col-sm-5'></div>
-                            <div className='col-sm-2'>
-                                <button className="btn btn-outline-secondary w-100" disabled={esLaUltimaPagina} type="button" id="inputGroupFileAddon03" onClick={() => setNumberPage(prevNumberPage => prevNumberPage + 1)}>Load more</button>
-                            </div>
-                            <div className='col-sm-5'></div>
-                        </div>
+                        {
+                            combination.length === 0 ? (
+                                <></>
+                            ) : (
+                                <div className='row'>
+                                    <div className='col-sm-5'></div>
+                                    <div className='col-sm-2'>
+                                        <button className="btn btn-outline-secondary w-100" disabled={esLaUltimaPagina} type="button" id="inputGroupFileAddon03" onClick={() => setNumberPage(prevNumberPage => prevNumberPage + 1)}>Load more</button>
+                                    </div>
+                                    <div className='col-sm-5'></div>
+                                </div>
+                            )
+                        }
 
                     </div>
 

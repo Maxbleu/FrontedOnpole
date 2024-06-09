@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 //  SERVICES
 import getCombination from "../services/getCombination";
+import { createPath } from "react-router-dom";
 
 //  EXPLICACION
 //  Este hoock se encarga de obtener la lista
@@ -38,13 +39,34 @@ const UseCombination = (payloadCombination, numberPage) => {
         //  Comprobamos el objeto meta está vacio ya que,
         //  solo estará vacio en la primera ejecucción y
         //  si no es la última pagina de la lista
-        if(JSON.stringify(meta) === "{}" || meta.current_page !== meta.last_page){
+        if(JSON.stringify(meta) === "{}" || meta.current_page !== meta.last_page || payloadCombination){
             //  Obtenemos la lista de vueltas en la 
             //  combinacion en la pagina que ha solicitado el usuario
             getCombination(payloadCombination,numberPage).then((combinationLeaderboard)=>{
-                //  Concatenamos la lista de vueltas de la combinacion ya solicitados
-                //  con la lista que acabamos de recibir
-                setCombination(combination.concat(combinationLeaderboard.data));
+                //  Comprobamos que los datos recibidos de la base de datos no están vacios
+                if(combinationLeaderboard.data.length !== 0){
+                    //  Comprobamos si en la lista de vueltas de la combinación
+                    //  hay vueltas, 
+                    if(combination.length!==0){
+                        //  Comprobamos si las vueltas de la combinacion solicitadas son
+                        //  de la misma combinacion de las vueltas de lista de combinacion
+                        if(combinationLeaderboard.data[0].coche_id === combination[0].coche_id &&
+                            combinationLeaderboard.data[0].circuito_id === combination[0].circuito_id){
+                            //  Concatenamos la lista de vueltas de la combinacion ya solicitados
+                            //  con la lista que acabamos de recibir
+                            setCombination(combination.concat(combinationLeaderboard.data));
+                        }else{
+                            //  Insertamos las vueltas de la combinacion
+                            setCombination(combinationLeaderboard.data);
+                        }
+                    }else{
+                        //  Insertamos las vueltas de la combinacion
+                        setCombination(combinationLeaderboard.data);
+                    }
+                }else{
+                    //  Insertamos las vueltas de la combinacion
+                    setCombination(combinationLeaderboard.data);
+                }
                 //  Guardamos el objeto meta para saber información sobre la página
                 setMeta(combinationLeaderboard.meta);
                 //  Indicamos que hemos rebicido la 
