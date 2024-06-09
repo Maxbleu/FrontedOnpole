@@ -1,5 +1,6 @@
 //  DEPENDENCIAS
 import { Navigate } from "react-router-dom";
+import { useEffect } from "react";
 
 //  CONTEXT
 import { useStateContext } from "../../contexts/ContextProvider";
