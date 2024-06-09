@@ -432,7 +432,7 @@ const AnalyzeSesionPage = () => {
 
                                             <div className='row mb-2'>
 
-                                                <div className='col-6'>
+                                                <div className='col-12'>
 
                                                     {
 
