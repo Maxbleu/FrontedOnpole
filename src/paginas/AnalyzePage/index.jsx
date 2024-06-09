@@ -100,6 +100,22 @@ const AnalyzePage = () => {
         return payloadSesion;
     }
 
+    function comprobarSiElCocheEstaEnLaLista(sesionObj){
+        let coche = coches.find((coche)=>{return coche.nombreCocheJuego === sesionObj.players[0].car});
+        if(coche !== undefined){
+            return true;
+        }
+        return false;
+    }
+
+    function comprobarSiElCircuitoEstaEnLaLista(sesionObj){
+        let circuito = circuitos.find((circuito) => {return circuito.nombre_pista_juego.find((nombre) => {return nombre === sesionObj.track})})
+        if(circuito !== undefined){
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Este método se encarga de comprobar si
      * el objeto sesion es correcto
@@ -112,7 +128,7 @@ const AnalyzePage = () => {
             "players" in sesionObj &&
             "sessions" in sesionObj &&
             "extras" in sesionObj &&
-            "__raceIni" in sesionObj &&
+            "__raceIni" in sesionObj ||
             "__quickDrive" in sesionObj){
                 return true;
         }
@@ -159,12 +175,49 @@ const AnalyzePage = () => {
                     //  de la sesion es de solo un jugador
                     if(sesionObj.players.length === 1){
 
-                        //  Indicamos que el usuario a
-                        //  introducido una sesion de un solo jugador
-                        setIsOnePlayerSesion(true);
+                        //  Comprobar que solo hay una sesion
+                        if(sesionObj.sessions.length === 1){
 
-                        //  Obtenemos la sesion
-                        setPayloadSesion(obtenerSesion(sesionObj, fileName));
+                            //  Comprobar que es una hotlap
+                            if(sesionObj.sessions[0].name === "Hotlap"){
+
+                                //  El coche de la sesion
+                                //  esté en la lista de coches
+                                if(comprobarSiElCocheEstaEnLaLista(sesionObj)){
+
+                                    //  El circuito de la sesion
+                                    //  esté en la lista circuitos
+                                    if(comprobarSiElCircuitoEstaEnLaLista(sesionObj)){
+                                        //  Indicamos que el usuario a
+                                        //  introducido una sesion de un solo jugador
+                                        setIsOnePlayerSesion(true);
+
+                                        //  Obtenemos la sesion
+                                        setPayloadSesion(obtenerSesion(sesionObj, fileName));
+
+                                    }else{
+
+                                        setErrorMensage("The circuit is not registered on the list.")
+
+                                    }
+
+                                }else{
+
+                                    setErrorMensage("The car is not registered on the list.");
+
+                                }
+
+                            }else{
+
+                                setErrorMensage("The sesion must be a hotlap");
+
+                            }
+
+                        }else{
+
+                            setErrorMensage("The sesion must have only one sesion");
+
+                        }
 
                     }else{
 
@@ -254,7 +307,7 @@ const AnalyzePage = () => {
 
                             </div>
 
-                            <div className={isIncorrectTypeFile || !isOnePlayerSesion ? "d-block" : "d-none"}>
+                            <div className={isIncorrectTypeFile || !isOnePlayerSesion || errorMensage !== "" ? "d-block" : "d-none"}>
 
                                 <div className="row">
 
