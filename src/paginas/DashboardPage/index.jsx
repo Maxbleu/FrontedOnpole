@@ -292,7 +292,7 @@ const DashboardPage = () => {
                                                                 </div>
                                                                 <hr />
                                                             </div>
-                                                            <Link to={`/sessions/${latestSesion.id}`} className='row mb-3 mt-3 text-decoration-none text-white'>
+                                                            <Link to={`/sessions/${latestSesion.id}`} className='row mb-4 mt-3 text-decoration-none text-white'>
                                                                 <div className='col-6'>
                                                                     <div className='row'>
                                                                         <div className='col-12'>
