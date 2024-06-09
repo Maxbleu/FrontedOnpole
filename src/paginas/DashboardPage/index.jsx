@@ -306,7 +306,7 @@ const DashboardPage = () => {
                                                                     </div>
                                                                 </div>
                                                                 <div className='col-6'>
-                                                                    <div className='row mt-3'>
+                                                                    <div className='row mt-2'>
                                                                         <div className='col-12'>
                                                                             <span className='fs-5'>{latestSesion.fecha}</span>
                                                                         </div>
