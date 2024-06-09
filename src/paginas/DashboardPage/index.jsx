@@ -251,7 +251,7 @@ const DashboardPage = () => {
                                                     </div>
                                                     <div className='row'>
                                                         <div className='col-12 d-flex justify-content-center'>
-                                                            <ResponsiveContainer width="62%" height={"100%"} aspect={3}>
+                                                            <ResponsiveContainer width="100%" maxHeight={150} aspect={3}>
                                                                 <BarChart
                                                                     width={500}
                                                                     height={300}
@@ -276,7 +276,7 @@ const DashboardPage = () => {
                                         <div className='col-3'>
                                             {
                                                 JSON.stringify(latestSesion) === "{}" ? (
-                                                    <div className='row mt-3 border rounded p-4 align-items-center text-center' style={{height: '24.5vh'}}>
+                                                    <div className='row mt-3 border rounded p-4 align-items-center text-center' style={{height: '24.6vh'}}>
                                                         <div className='col-12'>
                                                             <div className='row'>
                                                                 <h4>No sessions analyzed by the user.</h4>

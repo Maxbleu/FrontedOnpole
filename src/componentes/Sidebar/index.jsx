@@ -109,9 +109,9 @@ const Sidebar = ({children }) => {
                     </li>
                 </ul>
                 <hr className='mt-auto' />
-                <div className="d-flex">
+                <div className="d-flex justify-content-center">
                     <Link to="/profile" className='text-decoration-none text-white perfilSeccion'>
-                        <i className="bi bi-person-circle ps-3 pe-3"></i>
+                        <i className="bi bi-person-circle me-1"></i>
                     </Link>
                 </div>
             </div>
