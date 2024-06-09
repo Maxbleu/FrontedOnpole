@@ -15,6 +15,16 @@ import { useStateContext } from "../../contexts/ContextProvider";
 const RequireAuth = ({ children }) => {
     const {token } = useStateContext();
 
+    useEffect(()=>{
+        //  Comprobamos las dimensiones de la pantalla
+        //  para desahabilitar el overflow hidden del body
+        if(window.innerWidth < 768){
+            if(document.body.hasAttribute("style")){
+                document.body.removeAttribute("style");
+            }
+        }
+    },[])
+
     if (!token) {
         return <Navigate to="/login" replace />;
     }
