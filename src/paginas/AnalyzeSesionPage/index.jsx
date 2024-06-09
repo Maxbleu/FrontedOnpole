@@ -127,14 +127,26 @@ const AnalyzeSesionPage = () => {
      * sesion al servidor
      */
     useEffect(()=>{
+        //  Comprobamos si ha recibido la sesión
         if(sesionSeleccionada){
+            //  Solicitamos la sesión
             getSesionById(session_id)
                 .then((data)=>{
+                    //  Guardamos la sesión seleccionada
                     setSesionSeleccionada(data);
+                    //  Indicamos que hemos guardado la sesion seleccionada
                     setHaRecibidoSesion(true);
                 })
         }else{
             setHaRecibidoSesion(true);
+        }
+
+        //  Comprobamos las dimensiones de la pantalla
+        //  para desahabilitar el overflow hidden del body
+        if(window.innerWidth < 768){
+            if(document.body.hasAttribute("style")){
+                document.body.removeAttribute("style");
+            }
         }
     },[])
 

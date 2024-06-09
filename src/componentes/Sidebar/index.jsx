@@ -76,7 +76,7 @@ const Sidebar = ({children }) => {
 
         <div className='container-fluid p-0 d-flex'>
 
-            <div id="bdSidebar" className="d-flex flex-column flex-shrink-0 p-3 bg-success text-white offcanvas-md offcanvas-start sidebar">
+            <div id="bdSidebar" className="vh-100 d-flex flex-column flex-shrink-0 p-3 bg-success text-white offcanvas-md offcanvas-start sidebar">
                 <span className="navbar-brand text-center">
                     <h4 className='text-center'>OP</h4>
                 </span>
