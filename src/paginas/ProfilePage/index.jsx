@@ -181,7 +181,7 @@ const ProfilePage = () => {
                                 <div className='col-12'>
                                     {
                                         JSON.stringify(latestSesion) === "{}" ? (
-                                            <div className='row mt-4 border rounded p-4 text-center'>
+                                            <div className='row border rounded p-4 text-center'>
                                                 <div className='col-12'>
                                                     <div className='row'>
                                                         <h4>No sessions analyzed by the user.</h4>
@@ -189,7 +189,7 @@ const ProfilePage = () => {
                                                 </div>
                                             </div>
                                         ) : (
-                                            <div className='row mt-3'>
+                                            <div className='row'>
                                                 <div className='col-12 border rounded'>
                                                     <div className='row'>
                                                         <div className='col-6 col-sm-4 col-md-2'>
